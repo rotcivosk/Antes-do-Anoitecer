@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Antes do Anoitecer.sln"
+    "dotnet.defaultSolution": "Antes-do-Anoitecer.sln"
 }

@@ -30,7 +30,7 @@ public class buttonsActions : MonoBehaviour
     }
 
     public void actionMove(){
-        // Vai precisar fazer um código bonito para movimentar os players, mas por enquanto só vai ser um print
+        actionsHandler.MovePlayer(getPlaceSelected(), getPlayerSelected());
     }
     private PlayerHandler getPlayerSelected(){
         for (int i = 0; i < players.Length; i++)

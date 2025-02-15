@@ -118,4 +118,14 @@ public class PlaceResources : MonoBehaviour
             }
         }
     }
+
+
+
+
+
+    // Só pra UI
+    public Sprite GetPlaceSprite() {
+        return spriteRenderer.sprite;
+    }
+
 }

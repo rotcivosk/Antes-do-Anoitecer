@@ -18,6 +18,8 @@ public class UIHandler : MonoBehaviour
     public TimeHandler timeHandler;
     [SerializeField] TMP_Text textTime;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
