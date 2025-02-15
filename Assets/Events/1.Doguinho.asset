@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0635f3630a4e9479c7510b71758140, type: 3}
+  m_Name: 1.Doguinho
+  m_EditorClassIdentifier: 
+  id: 1
+  eventsName: Doguinho com Fome
+  eventsDescription: "Ao explorar, voc\xEA escuta alguns barulhos. Como \xE9 durante
+    o dia, voc\xEA decide vasculhar e encontra um doguinho, ele te olha e fica pedindo
+    comida, com medo.\n"
+  actionDescription1: "Alimentar o doguinho\r"
+  requirementAction1:
+    minPlaceDefense: 0
+    maxPlaceDefense: 100
+    minFoodWithPlayer: 1
+    minPlayerSanity: 100
+    maxPlayerSanity: 100
+    needsOtherCharacterTogether: 0
+    requiresAxe: 0
+    requiresCar: 0
+    requiresMedKit: 0
+    requiresFlashlight: 0
+    requiresBinocular: 0
+  resultDescription1:
+  - "Voc\xEA alimenta o doguinho e ele vai embora com o rabo abanando\r\n"
+  resultAction1:
+  - dangerChangeValueBy: 0
+    defenseChangeValueBy: 0
+    lootingChangeValueBy: 0
+    foodChangeValueBy: -1
+    sanityChangeValueBy: 5
+  chanceForEachResult1: 64000000
+  actionDescription2: 'Expulsar o doguinho
+
+'
+  requirementAction2:
+    minPlaceDefense: 0
+    maxPlaceDefense: 100
+    minFoodWithPlayer: 0
+    minPlayerSanity: 100
+    maxPlayerSanity: 100
+    needsOtherCharacterTogether: 0
+    requiresAxe: 0
+    requiresCar: 0
+    requiresMedKit: 0
+    requiresFlashlight: 0
+    requiresBinocular: 0
+  resultDescription2:
+  - 'Ele coloca o rabo entre as pernas e vai embora
+
+'
+  resultAction2:
+  - dangerChangeValueBy: 0
+    defenseChangeValueBy: 0
+    lootingChangeValueBy: 0
+    foodChangeValueBy: 0
+    sanityChangeValueBy: -5
+  chanceForEachResult2: 64000000
+  actionDescription3: 
+  requirementAction3:
+    minPlaceDefense: 0
+    maxPlaceDefense: 100
+    minFoodWithPlayer: 0
+    minPlayerSanity: 100
+    maxPlayerSanity: 100
+    needsOtherCharacterTogether: 0
+    requiresAxe: 0
+    requiresCar: 0
+    requiresMedKit: 0
+    requiresFlashlight: 0
+    requiresBinocular: 0
+  resultDescription3:
+  - 
+  resultAction3:
+  - dangerChangeValueBy: 0
+    defenseChangeValueBy: 0
+    lootingChangeValueBy: 0
+    foodChangeValueBy: 0
+    sanityChangeValueBy: 0
+  chanceForEachResult3: 64000000
