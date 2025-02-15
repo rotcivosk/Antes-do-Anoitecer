@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Unity.Mathematics;
 
 public class TimeHandler : MonoBehaviour
 {
     [SerializeField] float nextUpdate = 1;
     private float delayUpdate = 1;
     public float timeController;
+    TimeManager timeManager = new TimeManager(06, 00); // Começa às 12:57
+    public int timeHour = 0;
+    public int timeMinute = 0;
+    public int timeDay = 0; 
+    public string timeAsString;
     /// Start is called before the first frame update
 
     void Start()
@@ -31,7 +38,29 @@ public class TimeHandler : MonoBehaviour
 
     void UpdateEverySecond(){
     	timeController++;
+        timeAsString = timeManager.GetTime(Mathf.FloorToInt(timeController));
     }
+
+
+
+    // Transformar o valor de segundos em um horário
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     public void pauseTime(){
         delayUpdate = 0;
@@ -46,4 +75,24 @@ public class TimeHandler : MonoBehaviour
         Debug.Log ("Time Fast");
     }
 
+}
+public class TimeManager
+{
+    private DateTime currentTime;
+
+    public TimeManager(int startHour = 12, int startMinute = 0)
+    {
+        currentTime = new DateTime(2024, 1, 1, startHour, startMinute, 0); // Data inicial arbitrária
+    }
+
+    public string GetTime(int counter)
+    {
+        DateTime newTime = currentTime.AddMinutes(counter);
+        return newTime.ToString("HH:mm");
+    }
+    public string GetTimeWithDay(int counter)
+    {
+        DateTime newTime = currentTime.AddMinutes(counter);
+        return newTime.ToString("dd/MM HH:mm");
+    }
 }

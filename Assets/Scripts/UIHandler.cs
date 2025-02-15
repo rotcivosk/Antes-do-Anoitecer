@@ -18,7 +18,7 @@ public class UIHandler : MonoBehaviour
     public TimeHandler timeHandler;
     [SerializeField] TMP_Text textTime;
 
-    
+
 
 
     // Start is called before the first frame update
@@ -52,7 +52,7 @@ public class UIHandler : MonoBehaviour
     }
 
     void updateTime(){
-        textTime.text = timeHandler.timeController.ToString();
+        textTime.text = timeHandler.timeAsString;
     }
 
     public void UpdatePlaceMiniMenu(PlaceResources place){

@@ -6,6 +6,8 @@ public class EventManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] EventsHandler[] searchingEvents;
+    [SerializeField] EventsHandler[] lootingEvents;
+    [SerializeField] EventsHandler[] nightEvents;
     [SerializeField] EventsUI eventsUI;
     void Start()
     {
