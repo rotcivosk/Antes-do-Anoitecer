@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEditor.Search;
 using UnityEngine;
@@ -13,21 +14,31 @@ public class PlaceResources : MonoBehaviour
     [SerializeField] string placeName;
     [SerializeField] PlayerHandler[] players; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
 
+
     // Imagens do lugar
     [SerializeField] Sprite[] placeSelected; // 0 = PlaceSelected, 1 = PlaceUnselected
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] SpriteRenderer[] miniPlayerSprites; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
+    [SerializeField] Sprite menuImage;
+
 
     // Referencias pra atualizar a UI
     public UIHandler uiHandler;
+    [SerializeField] Vector2 menuPlacePosition; // Posição do miniMenu do lugar na tela ao ser selecionado
+
 
     // Pra parte de seleção de lugares
-    private float[] minMaxValues =  {0.2f, 0.7f, 0.2f, 0.9f}; // minX, maxX, minY, maxY. Limites da tela clicável
-    private bool isInside = false;
+    private float[] minMaxValues =  {0.1f, 0.9f, 0.1f, 0.9f}; // minX, maxX, minY, maxY. Limites da tela clicável
+    private bool isInside = false; // Isso parece gambi, mas juro que não é
     public bool isSelected;
+
 
     // Pros Setters e Getters
     private float[] minMaxSettingValues = {0, 100} ;
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +81,7 @@ public class PlaceResources : MonoBehaviour
     }
     void PlaceIsSelected() { // Se for fazer mais coisas quando selecionar o local, mexer aqui V 
         uiHandler.UpdatePlaceMiniMenu(this);
+        uiHandler.changeMiniMenuPosition(menuPlacePosition);
         spriteRenderer.sprite = placeSelected[0];
         isSelected = true;
     }
@@ -106,7 +118,12 @@ public class PlaceResources : MonoBehaviour
          defenseValue = Mathf.Clamp(defenseValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
     }
     
-   
+    public float getTravelValue(){
+        return 1;
+    }
+    public Sprite GetImage(){
+        return menuImage;
+    }
 
 
     // Para checar onde que o player está. Tou considerando ter 4 Imagens para cada local, e nelas aparecer a imagem do player lá se ele tiver

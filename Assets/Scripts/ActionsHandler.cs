@@ -37,6 +37,8 @@ public class ActionsHandler : MonoBehaviour
         player.setPlaceToGo(place);
     }
 
+
+
     // Calcular o tempo de duração da distância entre os lugares
     private int CalculateDurationMovement(PlaceResources place1, PlaceResources place2){
         return 20;

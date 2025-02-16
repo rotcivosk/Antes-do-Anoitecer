@@ -8,17 +8,7 @@ public class buttonsActions : MonoBehaviour
     [SerializeField] PlaceResources[] places; // 0 = Place1, 1 = Place2, 2 = Place3, 3 = Place4
     [SerializeField] PlayerHandler[] players; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
     [SerializeField] ActionsHandler actionsHandler;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void actionDefense(){
         actionsHandler.ImproveDefense(getPlaceSelected(), getPlayerSelected());
     }
