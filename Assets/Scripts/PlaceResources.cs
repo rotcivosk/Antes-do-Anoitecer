@@ -13,6 +13,7 @@ public class PlaceResources : MonoBehaviour
     [SerializeField] float defenseValue;
     [SerializeField] string placeName;
     [SerializeField] PlayerHandler[] players; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
+    [SerializeField] bool isVerified;
 
 
     // Imagens do lugar
@@ -117,9 +118,14 @@ public class PlaceResources : MonoBehaviour
     public void addDefenseValue(float changedValue) {
          defenseValue = Mathf.Clamp(defenseValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
     }
-    
+    public void setObserves(bool value) {
+        isVerified = value;
+    }
+    public bool getObserves() {
+        return isVerified;
+    }
     public float getTravelValue(){
-        return 1;
+        return 60;
     }
     public Sprite GetImage(){
         return menuImage;

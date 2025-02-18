@@ -14,19 +14,21 @@ public class TimeHandler : MonoBehaviour
     public int timeMinute = 0;
     public int timeDay = 0; 
     public string timeAsString;
+    [SerializeField] UIHandler uiHandler;
     /// Start is called before the first frame update
 
+
+    [SerializeField] public float normalSpeed;
+    [SerializeField] public float fastSpeed;
     void Start()
     {
         timeController = 0;
     }
-
     // Update is called once per frame
     void Update()
     {
         CheckIfTimePassed();  
     }
-
     void CheckIfTimePassed(){
         if(delayUpdate==0) return;
 
@@ -35,43 +37,24 @@ public class TimeHandler : MonoBehaviour
     		UpdateEverySecond();
     	}
     }
-
     void UpdateEverySecond(){
     	timeController++;
         timeAsString = timeManager.GetTime(Mathf.FloorToInt(timeController));
+        uiHandler.UpdatedEverySecond();
     }
+  
 
-
-
-    // Transformar o valor de segundos em um horário
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+    // Funções de controle de tempo
     public void pauseTime(){
         delayUpdate = 0;
         Debug.Log ("Time Paused");
     }
     public void resumeTime(){
-        delayUpdate = 1;
+        delayUpdate = normalSpeed;
         Debug.Log ("Time Resumed");
     }
     public void fastTime(){
-        delayUpdate = 0.3f;
+        delayUpdate = fastSpeed;
         Debug.Log ("Time Fast");
     }
 
@@ -80,18 +63,14 @@ public class TimeManager
 {
     private DateTime currentTime;
 
-    public TimeManager(int startHour = 12, int startMinute = 0)
-    {
+    public TimeManager(int startHour = 12, int startMinute = 0) {
         currentTime = new DateTime(2024, 1, 1, startHour, startMinute, 0); // Data inicial arbitrária
     }
-
-    public string GetTime(int counter)
-    {
+    public string GetTime(int counter) {
         DateTime newTime = currentTime.AddMinutes(counter);
         return newTime.ToString("HH:mm");
     }
-    public string GetTimeWithDay(int counter)
-    {
+    public string GetTimeWithDay(int counter) {
         DateTime newTime = currentTime.AddMinutes(counter);
         return newTime.ToString("dd/MM HH:mm");
     }

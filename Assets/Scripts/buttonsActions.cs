@@ -22,6 +22,14 @@ public class buttonsActions : MonoBehaviour
     public void actionMove(){
         actionsHandler.MovePlayer(getPlaceSelected(), getPlayerSelected());
     }
+    public void actionRelax(){
+        actionsHandler.RelaxInPlace(getPlaceSelected(), getPlayerSelected());
+    }
+
+    public void actionObserve(){
+        actionsHandler.ObservePlace(getPlaceSelected(), getPlayerSelected());
+    }
+
     private PlayerHandler getPlayerSelected(){
         for (int i = 0; i < players.Length; i++)
         {
@@ -37,6 +45,7 @@ public class buttonsActions : MonoBehaviour
         {
             if (places[i].isSelected)
             {
+                Debug.Log(places[i].getPlaceName());
                 return places[i];
             }
         }
