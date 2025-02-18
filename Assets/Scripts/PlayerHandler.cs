@@ -108,10 +108,10 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
         return actionType;
     }
     public string getCurrentAction() {
-        Debug.Log ("Cheguei no getCurrentAction");
-        Debug.Log ("ActionType: " + actionType);
-        Debug.Log ("isCurrentlyInAction: " + isCurrentlyInAction);
-        Debug.Log ("currentPlace: " + currentPlace.getPlaceName());
+        //Debug.Log ("Cheguei no getCurrentAction");
+        //Debug.Log ("ActionType: " + actionType);
+        //Debug.Log ("isCurrentlyInAction: " + isCurrentlyInAction);
+        //Debug.Log ("currentPlace: " + currentPlace.getPlaceName());
 
 
         if (!isCurrentlyInAction) {
@@ -129,10 +129,12 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
             case 4:
                 return "Observando " + currentPlace.getPlaceName();
             case 5:
-                Debug.Log ("Identifiquei que é caso 5");
                 return "Descansando em " + currentPlace.getPlaceName();
             case 6:
+                Debug.Log ("Identifiquei que é caso 6");
+                Debug.Log ("Movendo para " + placeToGo.getPlaceName());
                 return "Movendo para " + placeToGo.getPlaceName();
+                
             default:
                 return "Nada";
         }

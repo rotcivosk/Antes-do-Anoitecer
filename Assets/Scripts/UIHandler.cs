@@ -62,6 +62,7 @@ public class UIHandler : MonoBehaviour
         updateCurrentPlayerItens(currentPlayer);
     }
     public void updateCurrentPlayerTexts(PlayerHandler currentPlayer){
+        Debug.Log("Current Player: " + currentPlayer.getPlayerName());
         // Header
         playerHeaderPanelUI.playerIconImage.sprite = currentPlayer.miniPlayerSprite;
         playerHeaderPanelUI.playerNameText.text = currentPlayer.getPlayerName();
@@ -104,7 +105,7 @@ public class UIHandler : MonoBehaviour
     public void setPlayerHandler(PlayerHandler playerHandler){
         currentPlayer = playerHandler;
         changeSelectionStatusAllPlayers();
-        Debug.Log("Player " + currentPlayer.playerName + " is selected");
+        //Debug.Log("Player " + currentPlayer.playerName + " is selected");
         updatePlayerPanel(currentPlayer);
     }
 

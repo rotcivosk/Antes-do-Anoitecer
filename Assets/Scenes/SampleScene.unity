@@ -237,6 +237,7 @@ MonoBehaviour:
   clearDangerDuration: 15
   searchPlaceDuration: 0
   relaxDuration: 0
+  startingPlace: {fileID: 1104982710}
   relaxValue: 0
   dangerValue: 0
   lootingValue: 0

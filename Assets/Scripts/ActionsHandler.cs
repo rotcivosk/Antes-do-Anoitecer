@@ -46,6 +46,7 @@ public class ActionsHandler : MonoBehaviour
             Debug.Log (player.getPlayerName() + " já está no lugar");
             return;}
         
+        Debug.Log(player.getPlayerName() + "Movendo de " + player.getPlaceName() + " para " + place.getPlaceName());
         player.actionType = 6; //Ação 6 é de se locomover
         player.setPlaceToGo(place);
         StartAction(player, CalculateDurationMovement(player.getCurrentPlace(), place, player));
@@ -188,7 +189,7 @@ public class ActionsHandler : MonoBehaviour
                 }
                 break;
             case 6:
-                Debug.Log("Movendo " + player.getPlayerName() + " para " + place.getPlaceName());
+                Debug.Log("Movendo " + player.getPlayerName() + " para " + player.getPlaceToGo().getPlaceName());
                 player.setPlaceResources(player.getPlaceToGo());
                 break;
         }

@@ -85,10 +85,12 @@ public class PlaceResources : MonoBehaviour
         uiHandler.changeMiniMenuPosition(menuPlacePosition);
         spriteRenderer.sprite = placeSelected[0];
         isSelected = true;
+        Debug.Log("Selecionou " + placeName);
     }
     void PlaceIsUnselected() {
         spriteRenderer.sprite = placeSelected[1];
         isSelected = false;
+        Debug.Log("Deselecionou " + placeName);
     }
 
 
@@ -148,7 +150,7 @@ public class PlaceResources : MonoBehaviour
 
     // Só pra UI
     public Sprite GetPlaceSprite() {
-        return spriteRenderer.sprite;
+        return menuImage;
     }
 
 }
