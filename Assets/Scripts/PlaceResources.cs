@@ -21,7 +21,7 @@ public class PlaceResources : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] SpriteRenderer[] miniPlayerSprites; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
     [SerializeField] Sprite menuImage;
-
+    
 
     // Referencias pra atualizar a UI
     public UIHandler uiHandler;
@@ -50,47 +50,32 @@ public class PlaceResources : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckforSelectPlace();
+            
     }
 
 
     // Código para a seleção de Lugares
-    void CheckforSelectPlace() {
+
+    void OnMouseOver() { // Só pra checar se tá sobre o item ou não
+        Debug.Log("Mouse is over " + placeName);
+        if(uiHandler.isThereAPlaceSelected) return;
+        Debug.Log("Tem um lugar selecionado: " + uiHandler.isThereAPlaceSelected);
         if (Input.GetKeyDown(KeyCode.Mouse0)){
-            Vector3 mousePos = Input.mousePosition;
-
-            // Checa se está clicando na tela "clicável"
-            float mousePosXpercent = mousePos.x/Screen.width;
-            float mousePosYpercent = mousePos.y/Screen.height;
-
-            if (mousePosXpercent < minMaxValues[0] || mousePosXpercent > minMaxValues[1]) return;
-            if (mousePosYpercent < minMaxValues[2] || mousePosYpercent > minMaxValues[3]) return;
-
-            // Seleciona quem tá em cima, deseleciona quem não tá
-            if (isInside) {
-                PlaceIsSelected();
-            } else {
-                PlaceIsUnselected();
-            }	
+            Debug.Log("Clicou no lugar");
+            uiHandler.changeSelectionStatusAllPlaces(this);
         }
     }
-    void OnMouseOver() { // Só pra checar se tá sobre o item ou não
-        isInside = true;
-    }
-    void OnMouseExit() {
-        isInside = false;
-    }
-    void PlaceIsSelected() { // Se for fazer mais coisas quando selecionar o local, mexer aqui V 
+
+    public void PlaceIsSelected() { // Se for fazer mais coisas quando selecionar o local, mexer aqui V 
         uiHandler.UpdatePlaceMiniMenu(this);
         uiHandler.changeMiniMenuPosition(menuPlacePosition);
         spriteRenderer.sprite = placeSelected[0];
         isSelected = true;
-        Debug.Log("Selecionou " + placeName);
     }
-    void PlaceIsUnselected() {
+    public void PlaceIsUnselected() {
         spriteRenderer.sprite = placeSelected[1];
         isSelected = false;
-        Debug.Log("Deselecionou " + placeName);
+       
     }
 
 

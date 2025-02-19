@@ -26,6 +26,8 @@ public class ActionsHandler : MonoBehaviour
 
 
 
+
+
     void Start()
     {
         setForAllPlayersTheCurrentPlace(startingPlace);
@@ -134,8 +136,6 @@ public class ActionsHandler : MonoBehaviour
         StartAction(player, relaxDuration);
     }
 
-
-
     // Aqui controla o começo, a duração e o fim das ações, respectivamente
     private void StartAction(PlayerHandler player, int actionDuration){
         player.isCurrentlyInAction = true;
@@ -199,9 +199,12 @@ public class ActionsHandler : MonoBehaviour
     }
 
 
+
     public void setForAllPlayersTheCurrentPlace(PlaceResources place){
         for(int i = 0; i < players.Length; i++){
             players[i].setPlaceResources(place);
         }
     }
+
+    
 }

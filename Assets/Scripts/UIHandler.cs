@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class UIHandler : MonoBehaviour
 {
 
@@ -17,7 +18,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] PlayerHandler currentPlayer;
     [SerializeField] PlayerHandler startingPlayer;
     [SerializeField] PlayerHandler[] players; // Isso está sendo uma gambi para deselecionar depois de selecionar
-
+    [SerializeField] PlaceResources[] places; // Isso está sendo uma gambi para deselecionar depois de selecionar
+    public bool isThereAPlaceSelected = false;
+    private float delayForDeselect = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,8 @@ public class UIHandler : MonoBehaviour
     public void UpdatedEverySecond(){
         timeUI.textTime.text = timeUI.timeHandler.timeAsString;
         updateActionBar(currentPlayer);
+
+        Debug.Log(isThereAPlaceSelected)    ;
     }
 
 
@@ -124,6 +129,49 @@ public class UIHandler : MonoBehaviour
             }
         }
     }
+
+
+    // Assim como esse tbm não deveria estar aqui
+    public void changeSelectionStatusAllPlaces(PlaceResources selectedPlace){
+        Debug.Log("Selecionou o lugar:" + selectedPlace.getPlaceName());
+        foreach (PlaceResources place in places)
+        {
+
+            if (place == selectedPlace) {
+                place.PlaceIsSelected();
+            } else{
+                place.PlaceIsUnselected();
+            }
+        }
+        DelayThenChangeSelection(true);
+    }
+
+    public void deselectAllPlaces(){
+        Debug.Log("Deselecionou tudo");
+        foreach (PlaceResources place in places)
+        {
+            place.PlaceIsUnselected();
+        }
+        
+        changeMiniMenuPosition(new Vector2(-2000, 0));
+        DelayThenChangeSelection(false);
+    
+    }
+
+    private void DelayThenChangeSelection(bool newisThereAPlaceSelected)
+    {
+        StartCoroutine(DeselectAfterDelay(newisThereAPlaceSelected));
+    }
+
+    private IEnumerator DeselectAfterDelay(bool newisThereAPlaceSelected)
+    {
+        yield return new WaitForSeconds(delayForDeselect);
+        isThereAPlaceSelected = newisThereAPlaceSelected;
+    }
+
+
+
+
 
 
 

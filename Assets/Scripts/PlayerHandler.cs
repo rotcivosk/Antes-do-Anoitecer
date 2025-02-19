@@ -29,7 +29,6 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
     public float currentActionFinishTime;
     public string playerName;
     [SerializeField] public Sprite miniPlayerSprite;
-    [SerializeField] PlayerUI playerUI;
     [SerializeField] PlaceResources startingPlace;
     private PlaceResources placeToGo;
     public float currentActionPercentage;

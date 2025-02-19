@@ -2754,7 +2754,6 @@ MonoBehaviour:
   currentActionFinishTime: 0
   playerName: "Jos\xE9"
   miniPlayerSprite: {fileID: 1106821430, guid: e46d14a36e044784c9021c0f1fe5de4c, type: 3}
-  playerUI: {fileID: 1519902740}
   startingPlace: {fileID: 1104982710}
   currentActionPercentage: 0
 --- !u!1 &441322042
@@ -5095,6 +5094,14 @@ MonoBehaviour:
   - {fileID: 2018878447}
   - {fileID: 944536574}
   - {fileID: 439629571}
+  places:
+  - {fileID: 1104982710}
+  - {fileID: 1582383456}
+  - {fileID: 1267349802}
+  - {fileID: 1885149397}
+  - {fileID: 1105085394}
+  - {fileID: 1563421927}
+  isThereAPlaceSelected: 0
 --- !u!1 &732362029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,7 +5764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.12, y: -181}
+  m_AnchoredPosition: {x: -62, y: 29.821}
   m_SizeDelta: {x: 334.2484, y: 692.357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877243802
@@ -5784,6 +5791,8 @@ MonoBehaviour:
   - {fileID: 944536574}
   - {fileID: 439629571}
   actionsHandler: {fileID: 25505682}
+  isOverPanel: 0
+  uiHandler: {fileID: 712828105}
 --- !u!114 &877243803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,7 +6048,6 @@ MonoBehaviour:
   currentActionFinishTime: 0
   playerName: Maria
   miniPlayerSprite: {fileID: -1267927145, guid: e46d14a36e044784c9021c0f1fe5de4c, type: 3}
-  playerUI: {fileID: 1519902740}
   startingPlace: {fileID: 1104982710}
   currentActionPercentage: 0
 --- !u!1 &947406793
@@ -13114,7 +13122,6 @@ MonoBehaviour:
   currentActionFinishTime: 0
   playerName: "Jo\xE3o"
   miniPlayerSprite: {fileID: -561935973, guid: e46d14a36e044784c9021c0f1fe5de4c, type: 3}
-  playerUI: {fileID: 1519902740}
   startingPlace: {fileID: 1104982710}
   currentActionPercentage: 0
 --- !u!1 &2027557746
