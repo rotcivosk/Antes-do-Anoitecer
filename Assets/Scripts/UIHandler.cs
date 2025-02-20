@@ -21,6 +21,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] PlaceResources[] places; // Isso está sendo uma gambi para deselecionar depois de selecionar
     public bool isThereAPlaceSelected = false;
     private float delayForDeselect = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,9 +41,8 @@ public class UIHandler : MonoBehaviour
     // Controlador de quando será atualizado tudo
     public void UpdatedEverySecond(){
         timeUI.textTime.text = timeUI.timeHandler.timeAsString;
+        timeUI.textDay.text = timeUI.timeHandler.dayValue.ToString();
         updateActionBar(currentPlayer);
-
-        Debug.Log(isThereAPlaceSelected)    ;
     }
 
 
@@ -171,11 +171,6 @@ public class UIHandler : MonoBehaviour
 
 
 
-
-
-
-
-
 }
 
 [System.Serializable]
@@ -212,6 +207,7 @@ public class TimeUI
 {
     public TimeHandler timeHandler;
     public TMP_Text textTime;
+    public TMP_Text textDay;
 }
     
     

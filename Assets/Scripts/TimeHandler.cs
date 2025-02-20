@@ -11,11 +11,12 @@ public class TimeHandler : MonoBehaviour
     public float timeController;
     TimeManager timeManager = new TimeManager(06, 00); // Começa às 12:57
     public int timeHour = 0;
-    public int timeMinute = 0;
+
     public int timeDay = 0; 
     public string timeAsString;
+    public int dayValue = 1;
     [SerializeField] UIHandler uiHandler;
-    /// Start is called before the first frame update
+    // Start is called before the first frame update
 
 
     [SerializeField] public float normalSpeed;
@@ -28,6 +29,7 @@ public class TimeHandler : MonoBehaviour
     void Update()
     {
         CheckIfTimePassed();  
+
     }
     void CheckIfTimePassed(){
         if(delayUpdate==0) return;
@@ -41,8 +43,27 @@ public class TimeHandler : MonoBehaviour
     	timeController++;
         timeAsString = timeManager.GetTime(Mathf.FloorToInt(timeController));
         uiHandler.UpdatedEverySecond();
+        timeHour = timeManager.GetJustDay(Mathf.FloorToInt(timeController));
+        if(timeHour == 10){
+            timeDay++;
+            dayValue++;
+        }
     }
-  
+
+    public void CheckforClicks(){
+        // se clicar no número 1 do teclado, pausa o tempo
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
+            pauseTime();
+        }
+        // se clicar no número 2 do teclado, resumo o tempo
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            resumeTime();
+        }
+        // se clicar no número 3 do teclado, acelera o tempo
+        if(Input.GetKeyDown(KeyCode.Alpha3)){
+            fastTime();
+        }
+    }
 
     // Funções de controle de tempo
     public void pauseTime(){
@@ -56,6 +77,12 @@ public class TimeHandler : MonoBehaviour
     public void fastTime(){
         delayUpdate = fastSpeed;
         Debug.Log ("Time Fast");
+    }
+
+
+    public void skipNight(){
+        
+        timeController += 720;
     }
 
 }
@@ -74,4 +101,9 @@ public class TimeManager
         DateTime newTime = currentTime.AddMinutes(counter);
         return newTime.ToString("dd/MM HH:mm");
     }
+    public int GetJustDay(int counter) {
+        DateTime newTime = currentTime.AddMinutes(counter);
+        return newTime.Hour;
+    }
+
 }

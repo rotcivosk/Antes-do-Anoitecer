@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ActionsHandler : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class ActionsHandler : MonoBehaviour
     [SerializeField] int lootingValue;
     [SerializeField] int defenceIncreaseValue;
 
-
+    [SerializeField] EventManager eventManager;
 
 
 
@@ -163,10 +164,12 @@ public class ActionsHandler : MonoBehaviour
 
     private void finishAction(PlayerHandler player){
         PlaceResources place = player.getCurrentPlace();
+        player.isCurrentlyInAction = false;
         switch (player.getActionType()){
             case 1:
                 Debug.Log("Aumentando a defesa de " + place.getPlaceName() + " em 10");
                 place.addDefenseValue(defenceIncreaseValue);
+                eventManager.TriggerEvent("Defense", player, place);
                 break;
             case 2:
                 Debug.Log("Diminuindo o looting de " + place.getPlaceName() + " em 10");
@@ -194,7 +197,7 @@ public class ActionsHandler : MonoBehaviour
                 break;
         }
         if(player.isSelected) uiHandler.updatePlayerPanel(player);
-        player.isCurrentlyInAction = false;
+        
         player.actionType = 0;
     }
 

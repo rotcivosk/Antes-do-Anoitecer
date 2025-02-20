@@ -12,7 +12,7 @@ public class buttonsActions : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public bool isOverPanel = false;
     [SerializeField] UIHandler uiHandler;
 
-    private float delayForDeselect = 0.1f;
+    //private float delayForDeselect = 0.1f;
     
 
     void Update()
@@ -85,8 +85,6 @@ public class buttonsActions : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void CheckForCliking(){
-        Debug.Log("Checando");
-        Debug.Log("Tem um local selecionado: " + uiHandler.isThereAPlaceSelected);
         if(uiHandler.isThereAPlaceSelected)
             if (Input.GetKeyDown(KeyCode.Mouse0)){
                 if (!isOverPanel){

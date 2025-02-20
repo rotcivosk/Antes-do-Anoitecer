@@ -52,20 +52,14 @@ public class PlaceResources : MonoBehaviour
     {
             
     }
-
-
     // Código para a seleção de Lugares
-
     void OnMouseOver() { // Só pra checar se tá sobre o item ou não
-        Debug.Log("Mouse is over " + placeName);
         if(uiHandler.isThereAPlaceSelected) return;
-        Debug.Log("Tem um lugar selecionado: " + uiHandler.isThereAPlaceSelected);
         if (Input.GetKeyDown(KeyCode.Mouse0)){
             Debug.Log("Clicou no lugar");
             uiHandler.changeSelectionStatusAllPlaces(this);
         }
     }
-
     public void PlaceIsSelected() { // Se for fazer mais coisas quando selecionar o local, mexer aqui V 
         uiHandler.UpdatePlaceMiniMenu(this);
         uiHandler.changeMiniMenuPosition(menuPlacePosition);
@@ -79,11 +73,8 @@ public class PlaceResources : MonoBehaviour
     }
 
 
-
-
     // Getters and Setters só pq eu quero. Pq não mudou em pn. upd-> Né que até ajudou no final oh.
     // na real que relendo nem tem setters, é só getters e uns que somam valor   
-
     public string getPlaceName() {
         return placeName;
     }
@@ -103,7 +94,9 @@ public class PlaceResources : MonoBehaviour
         return defenseValue;
     }
     public void addDefenseValue(float changedValue) {
-         defenseValue = Mathf.Clamp(defenseValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
+        Debug.Log("Aumentou o Defense Value do local " + defenseValue + " + " + changedValue);
+        defenseValue = Mathf.Clamp(defenseValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
+         
     }
     public void setObserves(bool value) {
         isVerified = value;
