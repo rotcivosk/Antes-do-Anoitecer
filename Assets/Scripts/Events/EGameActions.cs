@@ -13,15 +13,27 @@ public class GameAction : ScriptableObject
 
     public void Apply(PlayerHandler player, PlaceResources place, EventManager eventManager)
     {
-        for (int i = 0; i < possibilities.Count; i++)
+        float totalProbability = 0;
+        foreach (var possibility in possibilities)
         {
-            if (Random.value < possibilities[i].probability)
+            totalProbability += possibility.probability;
+        }
+           // Gerar um valor aleatório entre 0 e totalProbability
+        float randomValue = Random.value * totalProbability;
+        float cumulative = 0f;
+
+
+        foreach (var possibility in possibilities)
+        {
+            cumulative += possibility.probability;
+            if (randomValue <= cumulative)
             {
-                effects = possibilities[i].effects;
-                resultDescription = possibilities[i].possibilityResultText;
+                effects = possibility.effects;
+                resultDescription = possibility.possibilityResultText;
                 break;
             }
         }
+
         foreach (var effect in effects)
         {
             if (effect is IActionEffect actionEffect)

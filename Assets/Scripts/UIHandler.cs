@@ -169,7 +169,9 @@ public class UIHandler : MonoBehaviour
         isThereAPlaceSelected = newisThereAPlaceSelected;
     }
 
-
+    public void StartNight(){
+        Debug.Log("Night has come");
+    }
 
 }
 

@@ -34,4 +34,5 @@ MonoBehaviour:
     probability: 5
     possibilityResultText: "Enquanto preparava armadilhas para os Vampiros, acabou
       se machucando com a mesma. Apesar da defesa, voc\xEA se fere "
-  resultDescription: 
+  resultDescription: "Conforme voc\xEA refor\xE7a a defesa, o local fica ainda mais
+    seguro. Voc\xEA se sente mais protegido. "

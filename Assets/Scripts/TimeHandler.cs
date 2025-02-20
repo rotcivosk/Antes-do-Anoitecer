@@ -17,10 +17,9 @@ public class TimeHandler : MonoBehaviour
     public int dayValue = 1;
     [SerializeField] UIHandler uiHandler;
     // Start is called before the first frame update
-
-
     [SerializeField] public float normalSpeed;
     [SerializeField] public float fastSpeed;
+    public bool isNight = false;
     void Start()
     {
         timeController = 0;
@@ -44,11 +43,19 @@ public class TimeHandler : MonoBehaviour
         timeAsString = timeManager.GetTime(Mathf.FloorToInt(timeController));
         uiHandler.UpdatedEverySecond();
         timeHour = timeManager.GetJustDay(Mathf.FloorToInt(timeController));
-        if(timeHour == 10){
-            timeDay++;
-            dayValue++;
+        CheckForNight();
+    }
+
+    void CheckForNight()
+    {
+        if (!isNight && timeHour >= 18)
+        {
+            isNight = true;
+            pauseTime();
+            uiHandler.StartNight();
         }
     }
+
 
     public void CheckforClicks(){
         // se clicar no número 1 do teclado, pausa o tempo

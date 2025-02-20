@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d42b5b65db5d604ab4a15b184f06683, type: 3}
   m_Name: 1.Defense
   m_EditorClassIdentifier: 
-  eventName: "T\xEDtulo do Texto"
-  eventDescription: "asdadfg.msnlgk  sfvkm ap\xE7ksf vba\xE7 sfdpb a\xE7ks fbp\xE7a
-    s\xE7fk apkismfapg\xF3ksag"
+  eventName: "Refor\xE7ar Local "
+  eventDescription: "Voc\xEA avalia o local onde est\xE1 e percebe que tem algumas
+    janelas que poderiam colocar um refor\xE7o, algumas entradas que poderia ser
+    protegidas. Demorar\xE1 um pouco mas \xE9 poss\xEDvel refor\xE7ar o local\r"
   possibleActions:
   - {fileID: 11400000, guid: 79a5be84c6e8e06478b56225a1e7784a, type: 2}
   - {fileID: 0}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b03be1cafae96e40a9a4eebd26c30d9, type: 3}
+  m_Name: "2.Explorar o galp\xE3o"
+  m_EditorClassIdentifier: 
+  actionName: "Explorar o galp\xE3o enquanto refor\xE7a o local "
+  possibilities:
+  - effects:
+    - {fileID: 11400000, guid: da76fa08ba54dbc41b1811ad6211ee88, type: 2}
+    - {fileID: 11400000, guid: efe84923db6920845a55eeb79d97bee6, type: 2}
+    probability: 0
+    possibilityResultText: 
+  resultDescription: 
