@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b03be1cafae96e40a9a4eebd26c30d9, type: 3}
+  m_Name: 4.Racionar Comida
+  m_EditorClassIdentifier: 
+  actionName: Racionar Comida
+  possibilities:
+  - effects:
+    - {fileID: 11400000, guid: e19b50644367d004c81e23dfa327ccfc, type: 2}
+    probability: 0
+    possibilityResultText: "Racionar a comida nunca \xE9 f\xE1cil, e exige at\xE9
+      dos mais fortes"
+  resultDescription: "Racionar a comida nunca \xE9 f\xE1cil, e exige at\xE9 dos mais
+    fortes"

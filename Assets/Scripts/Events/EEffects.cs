@@ -254,6 +254,24 @@ public class RemoveSanityExtraLarge : ScriptableObject, IActionEffect
         player.addSanity(-20);
     }
 }
+[CreateAssetMenu(fileName = "AddSanity", menuName = "Game/Effects/AddSanity")]
+public class AddSanity : ScriptableObject, IActionEffect
+{
+    public void Apply(PlayerHandler player, PlaceResources place)
+    {
+        Debug.Log("AddSanity");
+        player.addSanity(10);
+    }
+}
+[CreateAssetMenu(fileName = "AddSanity+", menuName = "Game/Effects/AddSanity+")]
+public class AddSanityLarge : ScriptableObject, IActionEffect
+{
+    public void Apply(PlayerHandler player, PlaceResources place)
+    {
+        Debug.Log("AddSanity");
+        player.addSanity(20);
+    }
+}
 
 [CreateAssetMenu(fileName = "Nothing", menuName = "Game/Effects/Nothing")]
 public class Nothing : ScriptableObject, IActionEffect

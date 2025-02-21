@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b03be1cafae96e40a9a4eebd26c30d9, type: 3}
+  m_Name: 5.Fome
+  m_EditorClassIdentifier: 
+  actionName: "N\xE3o se Alimentar"
+  possibilities:
+  - effects:
+    - {fileID: 11400000, guid: 3216563c9c9398a4295c68e6dad29fd2, type: 2}
+    probability: 0
+    possibilityResultText: Neste mundo cruel, que parece lhe torturar a cada segundo,
+      a fome lhe acompanha, maltratando o seu corpo e a sua mente
+  resultDescription: Neste mundo cruel, que parece lhe torturar a cada segundo, a
+    fome lhe acompanha, maltratando o seu corpo e a sua mente

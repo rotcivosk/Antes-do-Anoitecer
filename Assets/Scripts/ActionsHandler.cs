@@ -136,6 +136,12 @@ public class ActionsHandler : MonoBehaviour
         player.actionType = 5; //Define a ação que o player vai fazer
         StartAction(player, relaxDuration);
     }
+    public void SleepThroughtNight(PlayerHandler player){
+
+        Debug.Log(player.getPlayerName() + "Dormindo");
+        player.actionType = 7; //Define a ação que o player vai fazer
+        StartAction(player, player.getID() * 5);
+    }
 
     // Aqui controla o começo, a duração e o fim das ações, respectivamente
     private void StartAction(PlayerHandler player, int actionDuration){
@@ -194,6 +200,10 @@ public class ActionsHandler : MonoBehaviour
             case 6:
                 Debug.Log("Movendo " + player.getPlayerName() + " para " + player.getPlaceToGo().getPlaceName());
                 player.setPlaceResources(player.getPlaceToGo());
+                break;
+            case 7:
+                Debug.Log("Iniciando a Noite");
+                eventManager.TriggerEvent("Night", player, place);
                 break;
         }
         if(player.isSelected) uiHandler.updatePlayerPanel(player);

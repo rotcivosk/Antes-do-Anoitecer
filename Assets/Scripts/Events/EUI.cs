@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-
+using UnityEngine.UI;
 public class EventUI : MonoBehaviour
 {
     public GameEvent currentGameEvent; // Painel de eventos na UI
@@ -12,6 +12,8 @@ public class EventUI : MonoBehaviour
     [SerializeField] TMP_Text eventOption3;
     [SerializeField] TMP_Text eventResult;
     [SerializeField] GameObject okButton;
+    [SerializeField] Image eventImage;
+    [SerializeField] Image playerImage;
     void Start()
     {
         
@@ -37,8 +39,14 @@ public class EventUI : MonoBehaviour
         }
         eventResult.text = "";
         okButton.SetActive(false);
+
     }
 
+    public void updateImages(GameEvent currentGameEvent, PlayerHandler player){
+        eventImage.sprite = currentGameEvent.eventImage;
+        playerImage.sprite = player.miniPlayerSprite;
+
+    }
 
     public void updateResultUI(GameEvent gameEvent, GameAction choosenAction){
         eventName.text = gameEvent.eventName;

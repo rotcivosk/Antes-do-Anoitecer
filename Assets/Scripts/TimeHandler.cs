@@ -19,6 +19,8 @@ public class TimeHandler : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] public float normalSpeed;
     [SerializeField] public float fastSpeed;
+    [SerializeField] public float ultraFastSpeed;
+    [SerializeField] NightHandler nightHandler;
     public bool isNight = false;
     void Start()
     {
@@ -28,8 +30,10 @@ public class TimeHandler : MonoBehaviour
     void Update()
     {
         CheckIfTimePassed();  
-
-    }
+        
+        CheckforClicks();
+        
+            }
     void CheckIfTimePassed(){
         if(delayUpdate==0) return;
 
@@ -51,8 +55,7 @@ public class TimeHandler : MonoBehaviour
         if (!isNight && timeHour >= 18)
         {
             isNight = true;
-            pauseTime();
-            uiHandler.StartNight();
+            nightHandler.StartNight();
         }
     }
 
@@ -70,6 +73,10 @@ public class TimeHandler : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3)){
             fastTime();
         }
+        // se clicar no número 4 do teclado, acelera o tempo
+        if(Input.GetKeyDown(KeyCode.Alpha4)){
+            ultraFastTime();
+        }
     }
 
     // Funções de controle de tempo
@@ -85,11 +92,20 @@ public class TimeHandler : MonoBehaviour
         delayUpdate = fastSpeed;
         Debug.Log ("Time Fast");
     }
-
+    public void ultraFastTime(){
+        delayUpdate = ultraFastSpeed;
+        Debug.Log ("Time Ultra Fast");
+    }
 
     public void skipNight(){
-        
-        timeController += 720;
+        if (!isNight) return;
+        ultraFastTime();
+
+        while (timeHour < 6)
+        {
+            UpdateEverySecond();
+        }
+        pauseTime();
     }
 
 }

@@ -71,7 +71,9 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
     public int getFoodValue(){
         return food;
     }
-
+    public int getID(){
+        return playerIndex;
+    }
     public void updateFood(int changedValue){
         if (food > 0 || food<maxFood){    
             food = food + changedValue;

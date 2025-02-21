@@ -190,9 +190,14 @@ public class UIHandler : MonoBehaviour
         isThereAPlaceSelected = newisThereAPlaceSelected;
     }
 
-    public void StartNight(){
-        Debug.Log("Night has come");
+    public void updateNightUI(bool isDay){
+        if (isDay){
+            timeUI.IconSunMoon.sprite = timeUI.sunSprite;
+        } else{
+            timeUI.IconSunMoon.sprite = timeUI.moonSprite;
+        }
     }
+
 
 }
 
@@ -231,6 +236,10 @@ public class TimeUI
     public TimeHandler timeHandler;
     public TMP_Text textTime;
     public TMP_Text textDay;
+    public Image IconSunMoon;
+    public Sprite sunSprite;
+    public Sprite moonSprite;
+
 }
     
     
