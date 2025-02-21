@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 
 public class UIHandler : MonoBehaviour
@@ -21,6 +22,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] PlaceResources[] places; // Isso está sendo uma gambi para deselecionar depois de selecionar
     public bool isThereAPlaceSelected = false;
     private float delayForDeselect = 0.1f;
+    [SerializeField] ActionsHandler actionsHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,10 @@ public class UIHandler : MonoBehaviour
     }
 
 
+    public void ForceUpdate(){
+        updatePlayerPanel(currentPlayer);
+    }
+
     // Controlador de quando será atualizado tudo
     public void UpdatedEverySecond(){
         timeUI.textTime.text = timeUI.timeHandler.timeAsString;
@@ -48,13 +54,28 @@ public class UIHandler : MonoBehaviour
 
     // Panel de Locais
     public void UpdatePlaceMiniMenu(PlaceResources place){
+        UpdateMiniMenuHeaderValues(place);
+        UpdateMiniMenuDurationValues();
+    }
+
+    private void UpdateMiniMenuHeaderValues(PlaceResources place){
         placePanelUI.placeTexts[0].text = place.getPlaceName();
-        placePanelUI.placeTexts[1].text = place.getLootingValue().ToString() + "%";
+        if(place.getLootingValue() == -1) placePanelUI.placeTexts[1].text = "??";
+            else placePanelUI.placeTexts[1].text = place.getLootingValue().ToString() + "%";
         placePanelUI.placeTexts[2].text = place.getDangerValue().ToString() + "%";
         placePanelUI.placeTexts[3].text = place.getDefenseValue().ToString() + "%";
         placePanelUI.placeTexts[4].text = place.getTravelValue().ToString();
         placePanelUI.placeImage.sprite = place.GetImage();
     }
+    public void UpdateMiniMenuDurationValues(){
+        placePanelUI.placeTexts[5].text = actionsHandler.getImproveDefenseDuration(currentPlayer).ToString();
+        placePanelUI.placeTexts[6].text = actionsHandler.getStartLootingDuration(currentPlayer).ToString();
+        placePanelUI.placeTexts[7].text = actionsHandler.getClearDangerDuration(currentPlayer).ToString();
+        placePanelUI.placeTexts[8].text = actionsHandler.getSearchPlaceDuration(currentPlayer).ToString();
+        placePanelUI.placeTexts[9].text = actionsHandler.getRelaxDuration(currentPlayer).ToString();
+
+    }
+
     public void changeMiniMenuPosition(Vector2 position){
         RectTransform rt = placePanelUI.placeMiniMenu.GetComponent<RectTransform>();
         rt.anchoredPosition = position;
@@ -178,7 +199,7 @@ public class UIHandler : MonoBehaviour
 [System.Serializable]
 public class PlacePanelUI
 {
-    public TMP_Text[] placeTexts; // 0 = Título, 1 = Loot, 2 = Danger, 3 = Defesa, 4 = Viagem
+    public TMP_Text[] placeTexts; // 0 = Título, 1 = Loot, 2 = Danger, 3 = Defesa, 4 = Viagem, 5 = TimeObservar, 6 = TimeVasculhar, 7 = TimeDefender, 8 = TimeDanger, 9 = TimeRelax
     public Image placeImage;
     public GameObject placeMiniMenu;
     public PlaceResources startingPlace;

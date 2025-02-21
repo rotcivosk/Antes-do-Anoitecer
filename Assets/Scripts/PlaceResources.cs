@@ -38,7 +38,8 @@ public class PlaceResources : MonoBehaviour
     private float[] minMaxSettingValues = {0, 100} ;
 
 
-
+    // Localizações que os players ficarão no mapa
+    public Vector2[] playerPositions;
 
 
     // Start is called before the first frame update
@@ -85,7 +86,8 @@ public class PlaceResources : MonoBehaviour
          dangerValue = Mathf.Clamp(dangerValue + changedValue, minMaxSettingValues[0], minMaxSettingValues[1]);
     }
     public float getLootingValue() {
-        return lootingValue;
+        if (isVerified) return lootingValue;
+        return -1;
     }
     public void addLootingValue(float changedValue) {
         lootingValue = Mathf.Clamp(lootingValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
@@ -110,6 +112,8 @@ public class PlaceResources : MonoBehaviour
     public Sprite GetImage(){
         return menuImage;
     }
+
+
 
 
     // Para checar onde que o player está. Tou considerando ter 4 Imagens para cada local, e nelas aparecer a imagem do player lá se ele tiver

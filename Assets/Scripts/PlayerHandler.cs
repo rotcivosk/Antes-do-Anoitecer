@@ -15,8 +15,8 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
     [SerializeField] bool isHungry = false;
     [SerializeField] UIHandler UIHandler;   
     [SerializeField] PlayerItens playerItens;
-
-
+    [SerializeField] GameObject miniPlayer;
+    [SerializeField] int playerIndex;
 
 
     private float playerSanity = 100f;
@@ -36,6 +36,7 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
     {
         currentPlace = startingPlace;
         placeToGo = startingPlace;
+        setMiniPlayerLocation();
     }
 
     // Update is called once per frame
@@ -78,6 +79,7 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
     }
     public void setPlaceResources(PlaceResources placeResources){
         this.currentPlace = placeResources;
+        setMiniPlayerLocation();
     }
     public PlaceResources getCurrentPlace(){
         return currentPlace;
@@ -174,6 +176,11 @@ public class PlayerHandler : MonoBehaviour, IPointerClickHandler
         return playerItens.hasBinoculars;
     }
     
+
+    public void setMiniPlayerLocation(){
+        Debug.Log("Player " + playerName + " está em " + currentPlace.getPlaceName() + "in the position " + currentPlace.playerPositions[playerIndex]);
+        miniPlayer.transform.position = currentPlace.playerPositions[playerIndex];
+    }
 
 }
 

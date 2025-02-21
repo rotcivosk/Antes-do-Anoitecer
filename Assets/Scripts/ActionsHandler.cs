@@ -58,7 +58,7 @@ public class ActionsHandler : MonoBehaviour
 
     // Calcular o tempo de duração da distância entre os lugares
     private int CalculateDurationMovement(PlaceResources place1, PlaceResources place2, PlayerHandler player){
-        int calculatedDuration = 20;
+        int calculatedDuration = 30;
         if (player.getCar()) calculatedDuration = calculatedDuration / 2;
         return calculatedDuration;
     }
@@ -140,7 +140,7 @@ public class ActionsHandler : MonoBehaviour
     // Aqui controla o começo, a duração e o fim das ações, respectivamente
     private void StartAction(PlayerHandler player, int actionDuration){
         player.isCurrentlyInAction = true;
-
+        uiHandler.ForceUpdate();
         //Calcula o tempo da ação em segundos(do timecontroler e tals)
         player.currentActionStartTime = timeHandler.timeController;
         player.currentActionFinishTime = timeHandler.timeController + actionDuration;
@@ -199,6 +199,7 @@ public class ActionsHandler : MonoBehaviour
         if(player.isSelected) uiHandler.updatePlayerPanel(player);
         
         player.actionType = 0;
+        uiHandler.ForceUpdate();
     }
 
 
@@ -210,4 +211,28 @@ public class ActionsHandler : MonoBehaviour
     }
 
     
+    // Para pegar o tempo das ações
+
+    public int getStartLootingDuration(PlayerHandler player){
+        if (player.getFlashlight()) return startLootingDuration / 2;
+        return startLootingDuration;
+    }
+    public int getRelaxDuration(PlayerHandler player){
+        return relaxDuration;
+    }
+    public int getSearchPlaceDuration(PlayerHandler player){
+        if (player.getBinoculars()) return searchPlaceDuration / 2;
+        return searchPlaceDuration;
+    }
+    public int getImproveDefenseDuration(PlayerHandler player){
+        return improveDefenseDuration;
+    }
+    public int getClearDangerDuration(PlayerHandler player){
+        return clearDangerDuration;
+    }
+
+
+
+
+
 }

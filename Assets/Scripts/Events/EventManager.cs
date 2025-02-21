@@ -19,6 +19,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] EventUI eventUI; // Painel de eventos na UI
     private GameEvent selectedEvent; // O evento selecionado
     private GameAction selectedAction; // A ação selecionada
+    [SerializeField] private TimeHandler timeHandler; // O controlador de tempo
     void Start()
     {
         
@@ -31,6 +32,7 @@ public class EventManager : MonoBehaviour
         eventPanel.SetActive(true);
         currentPlayer = player;
         currentPlace = place;
+        timeHandler.pauseTime();
 
         // Selecionando um evento aleatório
         GameEvent selectedEvent = GetRandomEvent(eventType);
@@ -82,6 +84,7 @@ public class EventManager : MonoBehaviour
     public void FinishEvent()
     {
         eventPanel.SetActive(false);
+        timeHandler.resumeTime();
     }
     
 }
