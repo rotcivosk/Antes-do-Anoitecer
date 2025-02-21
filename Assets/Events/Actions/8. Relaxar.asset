@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b03be1cafae96e40a9a4eebd26c30d9, type: 3}
+  m_Name: 8. Relaxar
+  m_EditorClassIdentifier: 
+  actionName: Relaxar...
+  possibilities:
+  - effects:
+    - {fileID: 11400000, guid: 6626f3ebc599cf74b8426edad52a8e95, type: 2}
+    probability: 60
+    possibilityResultText: "Voc\xEA relaxa por um tempo, finalizando e se sentindo
+      revigorado para as pr\xF3ximas miss\xF5es"
+  - effects:
+    - {fileID: 11400000, guid: 8db8c1972f52d754c8b240b7c424f15f, type: 2}
+    probability: 40
+    possibilityResultText: "Voc\xEA tenta relaxar, mas os barulhos n\xE3o te permitem.
+      Ser\xE1 se h\xE1 barulhos mesmo ou sua mente est\xE1 lhe pregando pe\xE7as?"
+  resultDescription: 

@@ -62,8 +62,10 @@ public class UIHandler : MonoBehaviour
         placePanelUI.placeTexts[0].text = place.getPlaceName();
         if(place.getLootingValue() == -1) placePanelUI.placeTexts[1].text = "??";
             else placePanelUI.placeTexts[1].text = place.getLootingValue().ToString() + "%";
-        placePanelUI.placeTexts[2].text = place.getDangerValue().ToString() + "%";
-        placePanelUI.placeTexts[3].text = place.getDefenseValue().ToString() + "%";
+        if(place.getDangerValue() == -1) placePanelUI.placeTexts[2].text = "??";
+            else placePanelUI.placeTexts[2].text = place.getDangerValue().ToString() + "%";
+        if(place.getDefenseValue() == -1) placePanelUI.placeTexts[3].text = "??";
+            else placePanelUI.placeTexts[3].text = place.getDefenseValue().ToString() + "%";
         placePanelUI.placeTexts[4].text = place.getTravelValue().ToString();
         placePanelUI.placeImage.sprite = place.GetImage();
     }

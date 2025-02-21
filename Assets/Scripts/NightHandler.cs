@@ -49,6 +49,12 @@ public class NightHandler : MonoBehaviour
         }
     }
 
+    public void EndNight()
+    {
+        Debug.Log("A noite acabou");
+        HandleTimeAndUI();
+        uiHandler.updateNightUI(true);
+    }
  
     /* O que deveria acontecer:
     - O dia para de contar -> OK

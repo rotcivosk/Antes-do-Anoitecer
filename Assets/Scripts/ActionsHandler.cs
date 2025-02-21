@@ -174,12 +174,12 @@ public class ActionsHandler : MonoBehaviour
         switch (player.getActionType()){
             case 1:
                 Debug.Log("Aumentando a defesa de " + place.getPlaceName() + " em 10");
-                place.addDefenseValue(defenceIncreaseValue);
                 eventManager.TriggerEvent("Defense", player, place);
                 break;
             case 2:
                 Debug.Log("Diminuindo o looting de " + place.getPlaceName() + " em 10");
-                place.addLootingValue(lootingValue);
+                eventManager.TriggerEvent("Loot", player, place);
+                //place.addLootingValue(lootingValue);
                 break;
             case 3:
                 Debug.Log("Diminuindo o perigo de " + place.getPlaceName() + " em 10");
@@ -187,7 +187,8 @@ public class ActionsHandler : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("Vasculhando " + place.getPlaceName());
-                place.setObserves(true);
+                eventManager.TriggerEvent("Search", player, place);
+                //place.setObserves(true);
                 break;
             case 5:
                 Debug.Log("Relaxando em " + place.getPlaceName());
@@ -196,6 +197,7 @@ public class ActionsHandler : MonoBehaviour
                 } else {
                     player.addSanity(relaxValue);
                 }
+                eventManager.TriggerEvent("Relax", player, place);
                 break;
             case 6:
                 Debug.Log("Movendo " + player.getPlayerName() + " para " + player.getPlaceToGo().getPlaceName());

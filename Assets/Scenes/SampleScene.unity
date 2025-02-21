@@ -4995,14 +4995,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPanel: {fileID: 1346146261}
-  SearchEvents: []
-  LootEvents: []
+  SearchEvents:
+  - {fileID: 11400000, guid: 4382362b0804da44ea80803fdb1b98e0, type: 2}
+  LootEvents:
+  - {fileID: 11400000, guid: 16e2fb2279e50bd41abeb1f93c0162ff, type: 2}
+  - {fileID: 11400000, guid: a969057c696588b4d836378d01baae4f, type: 2}
   DefenseEvents:
   - {fileID: 11400000, guid: aab6d3c5d06c4d14a89eac89b04e96ce, type: 2}
   NightEvents:
   - {fileID: 11400000, guid: 300ea97c3b808c64f823a2c7d95dd4e8, type: 2}
   SpecialEvents: []
-  RelaxEvents: []
+  RelaxEvents:
+  - {fileID: 11400000, guid: 21818dd501ab1f3499a7cf5bddc09f35, type: 2}
   currentEvent: {fileID: 11400000, guid: aab6d3c5d06c4d14a89eac89b04e96ce, type: 2}
   eventUI: {fileID: 669064225}
   timeHandler: {fileID: 1733184583}
@@ -5046,7 +5050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2790a3ce5c21803469b88924926e12ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameEvent: {fileID: 0}
+  currentGameEvent: {fileID: 11400000, guid: aab6d3c5d06c4d14a89eac89b04e96ce, type: 2}
   eventName: {fileID: 457668008}
   eventDescription: {fileID: 1991877134}
   eventOption1: {fileID: 1873350499}

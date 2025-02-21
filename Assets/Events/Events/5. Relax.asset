@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d42b5b65db5d604ab4a15b184f06683, type: 3}
+  m_Name: 5. Relax
+  m_EditorClassIdentifier: 
+  eventName: Parar para descansar
+  eventDescription: "Voc\xEA resolve parar para descansar um pouco, esticando um
+    pouco suas pernas"
+  possibleActions:
+  - {fileID: 11400000, guid: 4bd717533e5560f449b359ce5a852177, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  eventImage: {fileID: 21300000, guid: 06a2b8dc3e197104ea1cbfe0e046df54, type: 3}

@@ -80,7 +80,8 @@ public class PlaceResources : MonoBehaviour
         return placeName;
     }
     public float getDangerValue() {
-        return dangerValue;
+        if (isVerified) return dangerValue;
+        return -1;
     }
     public void addDangerValue(float changedValue) {
          dangerValue = Mathf.Clamp(dangerValue + changedValue, minMaxSettingValues[0], minMaxSettingValues[1]);
@@ -93,7 +94,8 @@ public class PlaceResources : MonoBehaviour
         lootingValue = Mathf.Clamp(lootingValue + changedValue,  minMaxSettingValues[0], minMaxSettingValues[1]);
     }
     public float getDefenseValue() {
-        return defenseValue;
+        if (isVerified) return defenseValue;
+        return -1;
     }
     public void addDefenseValue(float changedValue) {
         Debug.Log("Aumentou o Defense Value do local " + defenseValue + " + " + changedValue);

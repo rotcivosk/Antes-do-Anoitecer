@@ -48,6 +48,7 @@ public class TimeHandler : MonoBehaviour
         uiHandler.UpdatedEverySecond();
         timeHour = timeManager.GetJustDay(Mathf.FloorToInt(timeController));
         CheckForNight();
+        CheckForSkipNight();
     }
 
     void CheckForNight()
@@ -56,6 +57,20 @@ public class TimeHandler : MonoBehaviour
         {
             isNight = true;
             nightHandler.StartNight();
+        }
+    }
+    void CheckForSkipNight()
+    {
+        if (timeHour >= 19)
+        {
+            ultraFastTime();
+        }
+        if (timeHour >= 6 && timeHour < 9 && isNight)
+        {
+            resumeTime();
+            isNight = false;
+            nightHandler.EndNight();
+            dayValue++;
         }
     }
 

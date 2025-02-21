@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d42b5b65db5d604ab4a15b184f06683, type: 3}
-  m_Name: 1.0 Loot
+  m_Name: 4. Look
   m_EditorClassIdentifier: 
-  eventName: 'Loot '
-  eventDescription: "Ao Vasculhar, voc\xEA encontra alguns itens a mais al\xE9m do
-    loot j\xE1 obtido"
+  eventName: Observar o Local
+  eventDescription: "Voc\xEA decide identificar o local, mapeando pontos que podem
+    ter alimentos, sua estrutura, entre outros\t"
   possibleActions:
-  - {fileID: 11400000, guid: 97a80e86686d8264fa34e94466a02f03, type: 2}
-  - {fileID: 11400000, guid: 73307cd8bff253f4f91bc92797494c86, type: 2}
+  - {fileID: 11400000, guid: fe51f06bde9356941b2df0f52488ab19, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  eventImage: {fileID: 21300000, guid: 035e3aa6f94be63488a3ba537b93a4c6, type: 3}

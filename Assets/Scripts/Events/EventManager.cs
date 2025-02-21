@@ -35,10 +35,11 @@ public class EventManager : MonoBehaviour
         currentPlayer = player;
         currentPlace = place;
         timeHandler.pauseTime();
-        eventUI.updateImages(currentEvent, currentPlayer);
-        // Selecionando um evento aleatório
         GameEvent selectedEvent = GetRandomEvent(eventType);
         currentEvent = selectedEvent;
+        eventUI.updateImages(currentEvent, currentPlayer);
+        // Selecionando um evento aleatório
+
         eventUI.updateEventUI(currentEvent);
 
     }
