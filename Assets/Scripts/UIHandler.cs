@@ -102,20 +102,24 @@ public class UIHandler : MonoBehaviour
         updateActionBar(currentPlayer);
     }
     public void updateCurrentPlayerItens(PlayerHandler currentPlayer){
-        if (currentPlayer.getCar()) playerBodyPanelUI.playerCurrentItems[0].color = Color.white;
-            else playerBodyPanelUI.playerCurrentItems[0].color = Color.black;
-        if (currentPlayer.getBeer()) playerBodyPanelUI.playerCurrentItems[1].color = Color.white;
-            else playerBodyPanelUI.playerCurrentItems[1].color = Color.black;
-        if (currentPlayer.getMedkit()) playerBodyPanelUI.playerCurrentItems[2].color = Color.white;
-            else playerBodyPanelUI.playerCurrentItems[2].color = Color.black;
-        if (currentPlayer.getFlashlight()) playerBodyPanelUI.playerCurrentItems[3].color = Color.white;
-            else playerBodyPanelUI.playerCurrentItems[3].color = Color.black;
-        if (currentPlayer.getBinoculars()) playerBodyPanelUI.playerCurrentItems[4].color = Color.white;
-            else playerBodyPanelUI.playerCurrentItems[4].color = Color.black;
+        // no lugar da cor, bora só desativar a imagem
+        if (currentPlayer.getCar()) playerBodyPanelUI.playerCurrentItems[0].gameObject.SetActive(true);
+            else playerBodyPanelUI.playerCurrentItems[0].gameObject.SetActive(false);
+        if (currentPlayer.getBeer()) playerBodyPanelUI.playerCurrentItems[1].gameObject.SetActive(true);
+            else playerBodyPanelUI.playerCurrentItems[1].gameObject.SetActive(false);
+        if (currentPlayer.getMedkit()) playerBodyPanelUI.playerCurrentItems[2].gameObject.SetActive(true);
+            else playerBodyPanelUI.playerCurrentItems[2].gameObject.SetActive(false);
+        if (currentPlayer.getFlashlight()) playerBodyPanelUI.playerCurrentItems[3].gameObject.SetActive(true);
+            else playerBodyPanelUI.playerCurrentItems[3].gameObject.SetActive(false);
+        if (currentPlayer.getBinoculars()) playerBodyPanelUI.playerCurrentItems[4].gameObject.SetActive(true);
+            else playerBodyPanelUI.playerCurrentItems[4].gameObject.SetActive(false);
+        
     }
 
     public void updateSanityBar(PlayerHandler currentPlayer){
         playerHeaderPanelUI.playerSanityBar.fillAmount = currentPlayer.getSanity() / 100;
+        playerHeaderPanelUI.playerSanityText.text = currentPlayer.getSanity().ToString() + "%";
+        
     }
     public void updateActionBar(PlayerHandler currentPlayer){
             if (currentPlayer.isCurrentlyInAction){
@@ -218,6 +222,7 @@ public class PlayerHeaderPanelUI
     public TMP_Text playerNameText;
     public TMP_Text playerFoodAmount;
     public Image playerSanityBar;
+    public TMP_Text playerSanityText;
 
 }
 [System.Serializable]

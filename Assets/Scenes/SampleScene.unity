@@ -2964,8 +2964,8 @@ MonoBehaviour:
   isHungry: 0
   UIHandler: {fileID: 712828105}
   playerItens:
-    hasCar: 0
-    hasBeer: 0
+    hasCar: 1
+    hasBeer: 1
     hasMedkit: 0
     hasFlashlight: 0
     hasBinoculars: 0
@@ -5746,6 +5746,7 @@ MonoBehaviour:
     playerNameText: {fileID: 1210797413}
     playerFoodAmount: {fileID: 1805077239}
     playerSanityBar: {fileID: 748746562}
+    playerSanityText: {fileID: 2142165012}
   playerBodyPanelUI:
     placeWherePlayerIsImage: {fileID: 419611470}
     playerCurrentAction: {fileID: 623052347}
@@ -5943,7 +5944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7002,8 +7003,8 @@ MonoBehaviour:
     hasCar: 0
     hasBeer: 0
     hasMedkit: 0
-    hasFlashlight: 0
-    hasBinoculars: 0
+    hasFlashlight: 1
+    hasBinoculars: 1
   miniPlayer: {fileID: 358224372}
   playerIndex: 1
   isDead: 0
@@ -15214,8 +15215,8 @@ MonoBehaviour:
   UIHandler: {fileID: 712828105}
   playerItens:
     hasCar: 0
-    hasBeer: 0
-    hasMedkit: 0
+    hasBeer: 1
+    hasMedkit: 1
     hasFlashlight: 0
     hasBinoculars: 0
   miniPlayer: {fileID: 306532115}
@@ -16110,8 +16111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66.573, y: -16}
-  m_SizeDelta: {x: 43.154, y: 19.7537}
+  m_AnchoredPosition: {x: 59.7, y: -15.575}
+  m_SizeDelta: {x: 50.047, y: 19.7537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142165012
 MonoBehaviour:
@@ -16133,7 +16134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 98%
+  m_text: 100%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3c039857d811034a8882d354336729b, type: 2}
   m_sharedMaterial: {fileID: 6927626153399201242, guid: d3c039857d811034a8882d354336729b, type: 2}
@@ -16160,14 +16161,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
