@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
+
 using Unity.VisualScripting;
+#if UNITY_EDITOR
 using UnityEditor.Search;
+#endif
 using UnityEngine;
 
 public class PlaceResources : MonoBehaviour

@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Comida
+  m_text: "Comida\xE9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3c039857d811034a8882d354336729b, type: 2}
   m_sharedMaterial: {fileID: 6927626153399201242, guid: d3c039857d811034a8882d354336729b, type: 2}
@@ -2792,7 +2792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 111.64746, y: 3.484192}
+  m_AnchoredPosition: {x: 118, y: 173}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419611470
@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 3
+  food: 0
   maxFood: 10
   isHungry: 0
   UIHandler: {fileID: 712828105}
@@ -5895,8 +5895,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.1, y: -0.000026703}
-  m_SizeDelta: {x: 169.4669, y: 29.3232}
+  m_AnchoredPosition: {x: 16.4, y: -15}
+  m_SizeDelta: {x: 331.12, y: 57.5364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &744076279
 GameObject:
@@ -5932,8 +5932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 66.97998, y: 0}
-  m_SizeDelta: {x: -134.5103, y: -0.2310009}
+  m_AnchoredPosition: {x: 87, y: -0.11549}
+  m_SizeDelta: {x: -269.2904, y: -0.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744076281
 MonoBehaviour:
@@ -6519,8 +6519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.6, y: 0}
-  m_SizeDelta: {x: -148.6468, y: -0.231}
+  m_AnchoredPosition: {x: -78.8, y: 0.115470886}
+  m_SizeDelta: {x: -284.3285, y: -13.078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868222431
 MonoBehaviour:
@@ -6999,7 +6999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 3
+  food: 0
   maxFood: 10
   isHungry: 0
   UIHandler: {fileID: 712828105}
@@ -7303,8 +7303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.002, y: -28.339}
-  m_SizeDelta: {x: 223.3, y: 99.29}
+  m_AnchoredPosition: {x: -0.86722, y: -28.339}
+  m_SizeDelta: {x: 321.57, y: 99.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &979988725
 GameObject:
@@ -7803,8 +7803,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 561.3489, y: 299.29843}
-  m_SizeDelta: {x: 231.7822, y: 186.7831}
+  m_AnchoredPosition: {x: -513, y: 120.26}
+  m_SizeDelta: {x: 299.3991, y: 261.7919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1089938297
 CanvasRenderer:
@@ -8594,8 +8594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.3917, y: 101}
-  m_SizeDelta: {x: 1174.1003, y: 223.2626}
+  m_AnchoredPosition: {x: 128.32, y: 139.52}
+  m_SizeDelta: {x: 983.24, y: 223.2626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1210797410
 GameObject:
@@ -9012,8 +9012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
-  m_SizeDelta: {x: -134.5103, y: -0.2310009}
+  m_AnchoredPosition: {x: -13.7, y: 0.11549}
+  m_SizeDelta: {x: -275.6012, y: -0.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247503973
 MonoBehaviour:
@@ -10073,8 +10073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 34.5, y: 0}
-  m_SizeDelta: {x: -141.3899, y: -0.2310009}
+  m_AnchoredPosition: {x: 35.6, y: 0}
+  m_SizeDelta: {x: -279.7762, y: -0.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370816947
 MonoBehaviour:
@@ -10148,8 +10148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -66.98003, y: 0}
-  m_SizeDelta: {x: -134.5103, y: -0.2310009}
+  m_AnchoredPosition: {x: -136.84935, y: 0}
+  m_SizeDelta: {x: -274.249, y: -0.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382538843
 MonoBehaviour:
@@ -14683,8 +14683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.3917, y: 101}
-  m_SizeDelta: {x: 1174.1003, y: 223.2626}
+  m_AnchoredPosition: {x: 117.07, y: 120.26}
+  m_SizeDelta: {x: 960.74, y: 261.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1991877133
 CanvasRenderer:
@@ -15213,7 +15213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 3
+  food: 0
   maxFood: 10
   isHungry: 0
   UIHandler: {fileID: 712828105}
@@ -15864,7 +15864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -64.2122, y: -18.302}
+  m_AnchoredPosition: {x: -64.8, y: -10.953}
   m_SizeDelta: {x: 38.1666, y: 38.167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110698506

@@ -15,7 +15,7 @@ MonoBehaviour:
   actionName: "N\xE3o Alimentar o Doguinho"
   possibilities:
   - effects:
-    - {fileID: 11400000, guid: 8db8c1972f52d754c8b240b7c424f15f, type: 2}
+    - {fileID: 11400000, guid: 3216563c9c9398a4295c68e6dad29fd2, type: 2}
     probability: 0
     possibilityResultText: "V\xE9i, como tu n\xE3o alimentou o doguinho? Acho que
       a sanidade j\xE1 alcan\xE7ou voc\xEA"
