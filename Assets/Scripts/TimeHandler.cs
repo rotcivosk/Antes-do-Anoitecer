@@ -11,7 +11,6 @@ public class TimeHandler : MonoBehaviour
     public int timeDay = 0; 
     public string timeAsString;
     public int dayValue = 1;
-    [SerializeField] UIHandler uiHandler;
     // Start is called before the first frame update
     [SerializeField] public float normalSpeed;
     [SerializeField] public float fastSpeed;
@@ -28,10 +27,8 @@ public class TimeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()    {
         CheckIfTimePassed();  
-        
-        CheckforClicks();
-        
-            }
+        TimeControllerByButtons();
+    }
     void CheckIfTimePassed(){
         if(delayUpdate==0) return;
 
@@ -43,7 +40,7 @@ public class TimeHandler : MonoBehaviour
     void UpdateEverySecond(){
     	timeController++;
         timeAsString = timeManager.GetTime(Mathf.FloorToInt(timeController));
-        uiHandler.UpdatedEverySecond();
+        UIHandler.Instance.UpdatedEverySecond();
         timeHour = timeManager.GetJustDay(Mathf.FloorToInt(timeController));
         CheckForNight();
         CheckForSkipNight();
@@ -68,37 +65,25 @@ public class TimeHandler : MonoBehaviour
             dayValue++;
         }
     }
-    private void CheckforClicks(){
-        if(Input.GetKeyDown(KeyCode.Alpha1)){
-            pauseTime();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2)){
-            resumeTime();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3)){
-            fastTime();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha4)){
-            ultraFastTime();
-        }
+    private void TimeControllerByButtons(){
+        if(Input.GetKeyDown(KeyCode.Alpha1)) pauseTime();
+        if(Input.GetKeyDown(KeyCode.Alpha2)) resumeTime();
+        if(Input.GetKeyDown(KeyCode.Alpha3)) fastTime();
+        if(Input.GetKeyDown(KeyCode.Alpha4)) ultraFastTime();
     }
 
     // Funções de controle de tempo
     public void pauseTime(){
         delayUpdate = 0;
-        Debug.Log ("Time Paused");
     }
     public void resumeTime(){
         delayUpdate = normalSpeed;
-        Debug.Log ("Time Resumed");
     }
     public void fastTime(){
         delayUpdate = fastSpeed;
-        Debug.Log ("Time Fast");
     }
     public void ultraFastTime(){
         delayUpdate = ultraFastSpeed;
-        Debug.Log ("Time Ultra Fast");
     }
 
     public void skipNight(){
@@ -114,7 +99,7 @@ public class TimeManager
 {
     private DateTime currentTime;
     public TimeManager(int startHour = 12, int startMinute = 0) {
-        currentTime = new DateTime(2024, 1, 1, startHour, startMinute, 0); // Data inicial arbitrária
+        currentTime = new DateTime(2024, 1, 1, startHour, startMinute, 0); // Data inicial 01/01/2024
     }
     public string GetTime(int counter) {
         DateTime newTime = currentTime.AddMinutes(counter);
