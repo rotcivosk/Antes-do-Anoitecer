@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.Mathematics;
-
 public class TimeHandler : MonoBehaviour
 {
     public static TimeHandler Instance;
@@ -12,7 +8,6 @@ public class TimeHandler : MonoBehaviour
     public float timeController;
     TimeManager timeManager = new TimeManager(06, 00); // Começa às 12:57
     public int timeHour = 0;
-
     public int timeDay = 0; 
     public string timeAsString;
     public int dayValue = 1;
@@ -23,18 +18,15 @@ public class TimeHandler : MonoBehaviour
     [SerializeField] public float ultraFastSpeed;
     [SerializeField] NightHandler nightHandler;
     public bool isNight = false;
-    private void Awake()
-    {
+    private void Awake()    {
         Instance = this;
     }
 
-    void Start()
-    {
+    void Start()    {
         timeController = 0;
     }
     // Update is called once per frame
-    void Update()
-    {
+    void Update()    {
         CheckIfTimePassed();  
         
         CheckforClicks();
@@ -57,18 +49,15 @@ public class TimeHandler : MonoBehaviour
         CheckForSkipNight();
     }
 
-    void CheckForNight()
-    {
+    void CheckForNight()    {
         if (!isNight && timeHour >= 18)
         {
             isNight = true;
             nightHandler.StartNight();
         }
     }
-    void CheckForSkipNight()
-    {
-        if (timeHour >= 19)
-        {
+    void CheckForSkipNight()    {
+        if (timeHour >= 19)        {
             ultraFastTime();
         }
         if (timeHour >= 6 && timeHour < 9 && isNight)
@@ -79,8 +68,6 @@ public class TimeHandler : MonoBehaviour
             dayValue++;
         }
     }
-
-
     private void CheckforClicks(){
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             pauseTime();
@@ -117,19 +104,15 @@ public class TimeHandler : MonoBehaviour
     public void skipNight(){
         if (!isNight) return;
         ultraFastTime();
-
-        while (timeHour < 6)
-        {
+        while (timeHour < 6)        {
             UpdateEverySecond();
         }
         pauseTime();
     }
-
 }
 public class TimeManager
 {
     private DateTime currentTime;
-
     public TimeManager(int startHour = 12, int startMinute = 0) {
         currentTime = new DateTime(2024, 1, 1, startHour, startMinute, 0); // Data inicial arbitrária
     }
@@ -145,5 +128,4 @@ public class TimeManager
         DateTime newTime = currentTime.AddMinutes(counter);
         return newTime.Hour;
     }
-
 }

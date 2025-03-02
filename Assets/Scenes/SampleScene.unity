@@ -226,8 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a615e4f4dba2fa4b80bda67040dc565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeHandler: {fileID: 1733184583}
-  uiHandler: {fileID: 712828105}
   startingPlace: {fileID: 1582383456}
   eventManager: {fileID: 669064222}
 --- !u!4 &25505683
@@ -1373,7 +1371,7 @@ GameObject:
   - component: {fileID: 156213253}
   - component: {fileID: 156213254}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2062,6 +2060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 306532116}
   - component: {fileID: 306532117}
+  - component: {fileID: 306532118}
   m_Layer: 0
   m_Name: Player_1
   m_TagString: Untagged
@@ -2099,24 +2098,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerImages:
-    miniPlayerSprite: {fileID: 0}
-    playerSprite: {fileID: 0}
-    playerHungrySprite: {fileID: 0}
-    playerDeadSprite: {fileID: 0}
-    playerCrazySprite: {fileID: 0}
-  UIHandler: {fileID: 0}
-  maxFood: 10
-  isHungry: 0
-  miniPlayer: {fileID: 156213252}
-  food: 3
-  isDead: 0
-  startingPlace: {fileID: 0}
-  isSelected: 0
+    miniPlayerSprite: {fileID: 21300000, guid: de6f17d8c7cab1a44b8f7f150211964c, type: 3}
+    playerSprite: {fileID: 21300000, guid: de6f17d8c7cab1a44b8f7f150211964c, type: 3}
+    playerHungrySprite: {fileID: 21300000, guid: de6f17d8c7cab1a44b8f7f150211964c, type: 3}
+    playerDeadSprite: {fileID: 21300000, guid: de6f17d8c7cab1a44b8f7f150211964c, type: 3}
+    playerCrazySprite: {fileID: 21300000, guid: de6f17d8c7cab1a44b8f7f150211964c, type: 3}
+  playerStatus:
+    isHungry: 0
+    isDead: 0
+    isCrazy: 0
+    isSick: 0
+    isTired: 0
+  characterResources: {fileID: 306532118}
+  miniPlayer: {fileID: 306532115}
+  startingPlace: {fileID: 1104982710}
+  isSelected: 1
   isCurrentlyInAction: 0
   currentActionStartTime: 0
   currentActionFinishTime: 0
-  _playerName: 
+  _playerName: "Jo\xE3o"
   currentActionPercentage: 0
+--- !u!114 &306532118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306532115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21afd75ac141874c964c533c378deae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItens:
+    hasCar: 0
+    hasBeer: 0
+    hasMedkit: 0
+    hasFlashlight: 0
+    hasBinoculars: 0
+  _playerFood: 2
+  _playerSanity: 100
 --- !u!1 &323598359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2356,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 358224373}
+  - component: {fileID: 358224374}
+  - component: {fileID: 358224375}
   m_Layer: 0
   m_Name: Player_2
   m_TagString: Untagged
@@ -2359,6 +2382,59 @@ Transform:
   - {fileID: 156213253}
   m_Father: {fileID: 135125140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358224374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358224372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerImages:
+    miniPlayerSprite: {fileID: 21300000, guid: 95e198ad547467b44a4bf5a2ea1520eb, type: 3}
+    playerSprite: {fileID: 21300000, guid: 95e198ad547467b44a4bf5a2ea1520eb, type: 3}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  playerStatus:
+    isHungry: 0
+    isDead: 0
+    isCrazy: 0
+    isSick: 0
+    isTired: 0
+  characterResources: {fileID: 358224375}
+  miniPlayer: {fileID: 358224372}
+  startingPlace: {fileID: 1104982710}
+  isSelected: 0
+  isCurrentlyInAction: 0
+  currentActionStartTime: 0
+  currentActionFinishTime: 0
+  _playerName: Maria
+  currentActionPercentage: 0
+--- !u!114 &358224375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358224372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21afd75ac141874c964c533c378deae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItens:
+    hasCar: 0
+    hasBeer: 1
+    hasMedkit: 1
+    hasFlashlight: 0
+    hasBinoculars: 0
+  _playerFood: 2
+  _playerSanity: 100
 --- !u!1 &366173154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,9 +2905,9 @@ MonoBehaviour:
   - {fileID: 1105085394}
   - {fileID: 1563421927}
   players:
-  - {fileID: 2018878447}
-  - {fileID: 944536574}
-  - {fileID: 439629571}
+  - {fileID: 306532117}
+  - {fileID: 358224374}
+  - {fileID: 1054592836}
 --- !u!1 &419611468
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,28 +3106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 439629569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d2ee43b4684eee45b1e99ed2493dfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerImages:
-    miniPlayerSprite: {fileID: 0}
-    playerSprite: {fileID: 0}
-    playerHungrySprite: {fileID: 0}
-    playerDeadSprite: {fileID: 0}
-    playerCrazySprite: {fileID: 0}
-  UIHandler: {fileID: 0}
-  maxFood: 10
-  isHungry: 0
-  miniPlayer: {fileID: 0}
-  food: 3
-  isDead: 0
-  startingPlace: {fileID: 0}
-  isSelected: 0
-  isCurrentlyInAction: 0
-  currentActionStartTime: 0
-  currentActionFinishTime: 0
-  _playerName: 
-  currentActionPercentage: 0
+  selectedPlayer: {fileID: 1054592836}
 --- !u!1 &441322042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5060,7 +5118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47651955e3b025c4f95ed586d708cba2, type: 3}
   m_Name: 
@@ -5128,7 +5186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2790a3ce5c21803469b88924926e12ae, type: 3}
   m_Name: 
@@ -5150,15 +5208,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3abe691283fc3a342aeed95f8b876370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - {fileID: 2018878447}
-  - {fileID: 944536574}
-  - {fileID: 439629571}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   places:
   - {fileID: 1104982710}
   - {fileID: 1582383456}
@@ -5707,6 +5765,9 @@ GameObject:
   - component: {fileID: 712828102}
   - component: {fileID: 712828101}
   - component: {fileID: 712828105}
+  - component: {fileID: 712828108}
+  - component: {fileID: 712828107}
+  - component: {fileID: 712828106}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5812,49 +5873,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a79782a95a94b34bbf02f27f585296d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placePanelUI:
-    placeTexts:
-    - {fileID: 1285422214}
-    - {fileID: 355931794}
-    - {fileID: 516297852}
-    - {fileID: 953998834}
-    - {fileID: 1738491091}
-    - {fileID: 1738491091}
-    - {fileID: 89053197}
-    - {fileID: 1137481645}
-    - {fileID: 1106156314}
-    - {fileID: 1238758666}
-    - {fileID: 676396310}
-    placeImage: {fileID: 1658211511}
-    placeMiniMenu: {fileID: 877243800}
-    startingPlace: {fileID: 1104982710}
-  playerHeaderPanelUI:
-    playerIconImage: {fileID: 680714590}
-    playerNameText: {fileID: 1210797413}
-    playerFoodAmount: {fileID: 1805077239}
-    playerSanityBar: {fileID: 748746562}
-    playerSanityText: {fileID: 2142165012}
-  playerBodyPanelUI:
-    placeWherePlayerIsImage: {fileID: 419611470}
-    playerCurrentAction: {fileID: 623052347}
-    playerCurrentItems:
-    - {fileID: 1382538843}
-    - {fileID: 868222431}
-    - {fileID: 1247503973}
-    - {fileID: 1370816947}
-    - {fileID: 744076281}
-    playerActionBar: {fileID: 1716347627}
-  timeUI:
-    timeHandler: {fileID: 1733184583}
-    textTime: {fileID: 89720080}
-    textDay: {fileID: 2130169767}
-    IconSunMoon: {fileID: 1849282666}
-    sunSprite: {fileID: 21300000, guid: 847a591203ee84a40814030de828a8db, type: 3}
-    moonSprite: {fileID: 21300000, guid: 1ec8743db64e6ff42b7784a76f6fdf25, type: 3}
-  currentPlayer: {fileID: 2018878447}
-  startingPlayer: {fileID: 2018878447}
-  isThereAPlaceSelected: 0
-  actionsHandler: {fileID: 25505682}
+  _currentPlayer: {fileID: 0}
+  startingPlayer: {fileID: 306532117}
+--- !u!114 &712828106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712828100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb9bfc30ae3d104f88578491f0fa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTime: {fileID: 89720080}
+  textDay: {fileID: 2130169767}
+  IconSunMoon: {fileID: 1849282666}
+  sunSprite: {fileID: 21300000, guid: 847a591203ee84a40814030de828a8db, type: 3}
+  moonSprite: {fileID: 21300000, guid: 1ec8743db64e6ff42b7784a76f6fdf25, type: 3}
+--- !u!114 &712828107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712828100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68838f9751d83714eab6381be859e70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1285422214}
+  lootText: {fileID: 355931794}
+  dangerText: {fileID: 516297852}
+  defenseText: {fileID: 953998834}
+  travelText: {fileID: 1738491091}
+  timeSearchText: {fileID: 1238758666}
+  timeLootText: {fileID: 1137481645}
+  timeDefendText: {fileID: 89053197}
+  timeDangerText: {fileID: 1106156314}
+  timeRelaxText: {fileID: 676396310}
+  placeImage: {fileID: 1658211511}
+  startingPlace: {fileID: 1104982710}
+  placeMiniMenu: {fileID: 877243800}
+--- !u!114 &712828108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712828100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fc70db831401b4a990b9f64853f4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIconImage: {fileID: 680714590}
+  playerNameText: {fileID: 1210797413}
+  playerFoodAmount: {fileID: 1805077239}
+  playerSanityBar: {fileID: 748746562}
+  playerSanityText: {fileID: 2142165012}
+  placeWherePlayerIsImage: {fileID: 419611470}
+  playerCurrentAction: {fileID: 623052347}
+  playerCurrentItems:
+  - {fileID: 1382538843}
+  - {fileID: 868222431}
+  - {fileID: 1247503973}
+  - {fileID: 1370816947}
+  - {fileID: 744076281}
+  playerActionBar: {fileID: 748746562}
 --- !u!1 &715200514
 GameObject:
   m_ObjectHideFlags: 0
@@ -6777,6 +6865,7 @@ GameObject:
   - component: {fileID: 877243801}
   - component: {fileID: 877243804}
   - component: {fileID: 877243803}
+  - component: {fileID: 877243805}
   - component: {fileID: 877243802}
   m_Layer: 5
   m_Name: PlacePanel
@@ -6819,20 +6908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9f8439f144a9247ba13d0a40eca07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  places:
-  - {fileID: 1104982710}
-  - {fileID: 1582383456}
-  - {fileID: 1267349802}
-  - {fileID: 1885149397}
-  - {fileID: 1105085394}
-  - {fileID: 1563421927}
-  players:
-  - {fileID: 2018878447}
-  - {fileID: 944536574}
-  - {fileID: 439629571}
   actionsHandler: {fileID: 25505682}
-  isOverPanel: 0
-  uiHandler: {fileID: 712828105}
 --- !u!114 &877243803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6871,6 +6947,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877243800}
   m_CullTransparentMesh: 1
+--- !u!114 &877243805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877243800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13760d37c23c2a24fabea62a463e15b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &892072912
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,28 +7156,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 944536572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d2ee43b4684eee45b1e99ed2493dfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerImages:
-    miniPlayerSprite: {fileID: 0}
-    playerSprite: {fileID: 0}
-    playerHungrySprite: {fileID: 0}
-    playerDeadSprite: {fileID: 0}
-    playerCrazySprite: {fileID: 0}
-  UIHandler: {fileID: 0}
-  maxFood: 10
-  isHungry: 0
-  miniPlayer: {fileID: 358224372}
-  food: 0
-  isDead: 0
-  startingPlace: {fileID: 1104982710}
-  isSelected: 0
-  isCurrentlyInAction: 0
-  currentActionStartTime: 0
-  currentActionFinishTime: 0
-  _playerName: Maria
-  currentActionPercentage: 0
+  selectedPlayer: {fileID: 358224374}
 --- !u!1 &947406793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7496,8 +7566,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985971403}
+  - component: {fileID: 985971404}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Places
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7524,6 +7595,18 @@ Transform:
   - {fileID: 1563421925}
   m_Father: {fileID: 1260616225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985971404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985971402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e152269f7d9c0c4da58a0a75ad90c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993721356
 GameObject:
   m_ObjectHideFlags: 0
@@ -7777,6 +7860,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054592834}
+  - component: {fileID: 1054592836}
+  - component: {fileID: 1054592835}
   m_Layer: 0
   m_Name: Player_3
   m_TagString: Untagged
@@ -7801,6 +7886,59 @@ Transform:
   - {fileID: 2027036629}
   m_Father: {fileID: 135125140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1054592835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054592833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21afd75ac141874c964c533c378deae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItens:
+    hasCar: 1
+    hasBeer: 0
+    hasMedkit: 0
+    hasFlashlight: 0
+    hasBinoculars: 0
+  _playerFood: 2
+  _playerSanity: 100
+--- !u!114 &1054592836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054592833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerImages:
+    miniPlayerSprite: {fileID: 21300000, guid: 71e3f73cc023d0c499f1e1f9bff89b86, type: 3}
+    playerSprite: {fileID: 21300000, guid: 71e3f73cc023d0c499f1e1f9bff89b86, type: 3}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  playerStatus:
+    isHungry: 0
+    isDead: 0
+    isCrazy: 0
+    isSick: 0
+    isTired: 0
+  characterResources: {fileID: 1054592835}
+  miniPlayer: {fileID: 1054592833}
+  startingPlace: {fileID: 1267349802}
+  isSelected: 0
+  isCurrentlyInAction: 0
+  currentActionStartTime: 0
+  currentActionFinishTime: 0
+  _playerName: "Jos\xE9"
+  currentActionPercentage: 0
 --- !u!1 &1076587224
 GameObject:
   m_ObjectHideFlags: 0
@@ -7924,6 +8062,7 @@ GameObject:
   - component: {fileID: 1104982709}
   - component: {fileID: 1104982711}
   - component: {fileID: 1104982710}
+  - component: {fileID: 1104982713}
   - component: {fileID: 1104982712}
   m_Layer: 0
   m_Name: Place1-Oferecimentos
@@ -7959,17 +8098,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: c766bebf074bd5348812a38450f2b28a, type: 3}
-  - {fileID: 21300000, guid: c766bebf074bd5348812a38450f2b28a, type: 3}
-  spriteRenderer: {fileID: 1104982711}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 0
+  _lootingValue: 0
+  _defenseValue: 0
+  _placeName: Ofere Cimentos
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1104982713}
   menuPlacePosition: {x: -250, y: 0}
-  isSelected: 0
   playerPositions:
   - {x: -7.61, y: 2.25}
   - {x: -6.48, y: 2.13}
   - {x: -5.25, y: 1.38}
+  isSelected: 0
 --- !u!212 &1104982711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8043,6 +8183,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.106848, y: 2.4100778, z: 0.2}
   m_Center: {x: 0.04648137, y: 0.010949969, z: 0}
+--- !u!114 &1104982713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104982708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
 --- !u!1 &1105085391
 GameObject:
   m_ObjectHideFlags: 0
@@ -8054,6 +8208,7 @@ GameObject:
   - component: {fileID: 1105085392}
   - component: {fileID: 1105085395}
   - component: {fileID: 1105085394}
+  - component: {fileID: 1105085396}
   - component: {fileID: 1105085393}
   m_Layer: 0
   m_Name: Place5-HouseCastro
@@ -8110,17 +8265,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
-  - {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
-  spriteRenderer: {fileID: 1105085395}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 5
+  _lootingValue: 84
+  _defenseValue: 66
+  _placeName: Casa dos Castros
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1105085396}
   menuPlacePosition: {x: -528, y: -166}
-  isSelected: 0
   playerPositions:
   - {x: -2.79, y: -2.61}
   - {x: -1.58, y: -2.44}
   - {x: -0.55, y: -2.91}
+  isSelected: 0
 --- !u!212 &1105085395
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8173,6 +8329,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1105085396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105085391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
 --- !u!1 &1106156312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9300,6 +9470,7 @@ GameObject:
   - component: {fileID: 1267349801}
   - component: {fileID: 1267349803}
   - component: {fileID: 1267349802}
+  - component: {fileID: 1267349805}
   - component: {fileID: 1267349804}
   m_Layer: 0
   m_Name: Place3-HotelInn
@@ -9335,17 +9506,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
-  - {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
-  spriteRenderer: {fileID: 1267349803}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 0
+  _lootingValue: 0
+  _defenseValue: 0
+  _placeName: Hotel Inn Hotel
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1267349805}
   menuPlacePosition: {x: 180, y: 150}
-  isSelected: 0
   playerPositions:
   - {x: 4.93, y: 1.52}
   - {x: 4.87, y: 3.7}
   - {x: 6.44, y: 3.14}
+  isSelected: 0
 --- !u!212 &1267349803
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9419,6 +9591,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.3262608, y: 2.0982065, z: 0.2}
   m_Center: {x: -0.026581585, y: 0.0001798581, z: 0}
+--- !u!114 &1267349805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267349800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
 --- !u!1 &1273163170
 GameObject:
   m_ObjectHideFlags: 0
@@ -9679,7 +9865,7 @@ GameObject:
   - component: {fileID: 1289737577}
   - component: {fileID: 1289737578}
   m_Layer: 0
-  m_Name: Player1_BG
+  m_Name: Player2_BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11190,6 +11376,7 @@ GameObject:
   - component: {fileID: 1563421925}
   - component: {fileID: 1563421928}
   - component: {fileID: 1563421927}
+  - component: {fileID: 1563421929}
   - component: {fileID: 1563421926}
   m_Layer: 0
   m_Name: Place6-HouseSouza
@@ -11246,17 +11433,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
-  - {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
-  spriteRenderer: {fileID: 1563421928}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 56
+  _lootingValue: 56
+  _defenseValue: 54
+  _placeName: Casa dos Souzas
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1563421929}
   menuPlacePosition: {x: 247.12, y: -180}
-  isSelected: 0
   playerPositions:
   - {x: 5.51, y: -2.57}
   - {x: 5.47, y: -3.45}
   - {x: 6.46, y: -2.91}
+  isSelected: 0
 --- !u!212 &1563421928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11309,6 +11497,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1563421929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563421924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
 --- !u!1 &1565599206
 GameObject:
   m_ObjectHideFlags: 0
@@ -11454,6 +11656,7 @@ GameObject:
   - component: {fileID: 1582383455}
   - component: {fileID: 1582383457}
   - component: {fileID: 1582383456}
+  - component: {fileID: 1582383459}
   - component: {fileID: 1582383458}
   m_Layer: 0
   m_Name: Place2-Apartamentos
@@ -11489,17 +11692,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
-  - {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
-  spriteRenderer: {fileID: 1582383457}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 24
+  _lootingValue: 56
+  _defenseValue: 77
+  _placeName: Kitnet Apertamentos
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1582383459}
   menuPlacePosition: {x: 200, y: 75}
-  isSelected: 0
   playerPositions:
   - {x: -2.82, y: 1.76}
   - {x: -1.81, y: 0.85}
   - {x: -0.82, y: 3.74}
+  isSelected: 0
 --- !u!212 &1582383457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11573,6 +11777,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.1602352, y: 2.1183453, z: 0.2}
   m_Center: {x: 0.09775374, y: 0.0029166637, z: 0}
+--- !u!114 &1582383459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582383454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
 --- !u!1 &1589628749
 GameObject:
   m_ObjectHideFlags: 0
@@ -14262,6 +14480,7 @@ GameObject:
   - component: {fileID: 1885149396}
   - component: {fileID: 1885149398}
   - component: {fileID: 1885149397}
+  - component: {fileID: 1885149400}
   - component: {fileID: 1885149399}
   m_Layer: 0
   m_Name: Place4-HouseSilva
@@ -14297,17 +14516,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeSelected:
-  - {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
-  - {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
-  spriteRenderer: {fileID: 1885149398}
-  uiHandler: {fileID: 712828105}
+  _dangerValue: 0
+  _lootingValue: 0
+  _defenseValue: 0
+  _placeName: Casa dos Silva
+  isMouseOver: 0
+  placeImagesHandler: {fileID: 1885149400}
   menuPlacePosition: {x: -270, y: -161}
-  isSelected: 0
   playerPositions:
   - {x: -7.61, y: -3.17}
   - {x: -6.48, y: -2.59}
   - {x: -5.25, y: -3.31}
+  isSelected: 0
 --- !u!212 &1885149398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14381,6 +14601,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3718028, y: 2.097622, z: 0.2}
   m_Center: {x: -0.13398044, y: -0.093608975, z: 0}
+--- !u!114 &1885149400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885149395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eaa4fdd57161c4094dfea5a9e2faa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelected: {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
+  placeNotSelected: {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
 --- !u!1 &1915188696
 GameObject:
   m_ObjectHideFlags: 0
@@ -15227,7 +15461,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2018878446}
   - component: {fileID: 2018878447}
-  - component: {fileID: 2018878448}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -15266,42 +15499,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2018878445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerImages:
-    miniPlayerSprite: {fileID: 0}
-    playerSprite: {fileID: 0}
-    playerHungrySprite: {fileID: 0}
-    playerDeadSprite: {fileID: 0}
-    playerCrazySprite: {fileID: 0}
-  UIHandler: {fileID: 0}
-  maxFood: 10
-  isHungry: 0
-  miniPlayer: {fileID: 306532115}
-  food: 0
-  isDead: 0
-  startingPlace: {fileID: 1104982710}
-  isSelected: 1
-  isCurrentlyInAction: 0
-  currentActionStartTime: 0
-  currentActionFinishTime: 0
-  _playerName: "Jo\xE3o"
-  currentActionPercentage: 0
---- !u!114 &2018878448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018878445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d2ee43b4684eee45b1e99ed2493dfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHandler: {fileID: 306532117}
-  UIHandler: {fileID: 712828105}
+  selectedPlayer: {fileID: 306532117}
 --- !u!1 &2027036628
 GameObject:
   m_ObjectHideFlags: 0
