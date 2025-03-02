@@ -6,6 +6,7 @@ using Unity.Mathematics;
 
 public class TimeHandler : MonoBehaviour
 {
+    public static TimeHandler Instance;
     [SerializeField] float nextUpdate = 1;
     private float delayUpdate = 1;
     public float timeController;
@@ -22,6 +23,11 @@ public class TimeHandler : MonoBehaviour
     [SerializeField] public float ultraFastSpeed;
     [SerializeField] NightHandler nightHandler;
     public bool isNight = false;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         timeController = 0;
@@ -75,20 +81,16 @@ public class TimeHandler : MonoBehaviour
     }
 
 
-    public void CheckforClicks(){
-        // se clicar no número 1 do teclado, pausa o tempo
+    private void CheckforClicks(){
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             pauseTime();
         }
-        // se clicar no número 2 do teclado, resumo o tempo
         if(Input.GetKeyDown(KeyCode.Alpha2)){
             resumeTime();
         }
-        // se clicar no número 3 do teclado, acelera o tempo
         if(Input.GetKeyDown(KeyCode.Alpha3)){
             fastTime();
         }
-        // se clicar no número 4 do teclado, acelera o tempo
         if(Input.GetKeyDown(KeyCode.Alpha4)){
             ultraFastTime();
         }

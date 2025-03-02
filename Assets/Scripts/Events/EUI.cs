@@ -42,9 +42,9 @@ public class EventUI : MonoBehaviour
 
     }
 
-    public void updateImages(GameEvent currentGameEvent, PlayerHandler player){
+    public void updateImages(GameEvent currentGameEvent, CharacterHandler player){
         eventImage.sprite = currentGameEvent.eventImage;
-        playerImage.sprite = player.miniPlayerSprite;
+        //playerImage.sprite = player.miniPlayerSprite;
 
     }
 

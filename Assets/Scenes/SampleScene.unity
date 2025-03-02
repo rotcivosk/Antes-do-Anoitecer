@@ -228,20 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeHandler: {fileID: 1733184583}
   uiHandler: {fileID: 712828105}
-  players:
-  - {fileID: 2018878447}
-  - {fileID: 944536574}
-  - {fileID: 439629571}
-  improveDefenseDuration: 20
-  startLootingDuration: 30
-  clearDangerDuration: 60
-  searchPlaceDuration: 15
-  relaxDuration: 60
-  startingPlace: {fileID: 1104982710}
-  relaxValue: 0
-  dangerValue: 0
-  lootingValue: 0
-  defenceIncreaseValue: 0
+  startingPlace: {fileID: 1582383456}
   eventManager: {fileID: 669064222}
 --- !u!4 &25505683
 Transform:
@@ -251,12 +238,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25505681}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 371.8373, y: 1062.7078, z: -3.114015}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2006061753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &55826373
 GameObject:
@@ -2074,6 +2061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 306532116}
+  - component: {fileID: 306532117}
   m_Layer: 0
   m_Name: Player_1
   m_TagString: Untagged
@@ -2098,6 +2086,37 @@ Transform:
   - {fileID: 1616425806}
   m_Father: {fileID: 135125140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306532117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306532115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerImages:
+    miniPlayerSprite: {fileID: 0}
+    playerSprite: {fileID: 0}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  UIHandler: {fileID: 0}
+  maxFood: 10
+  isHungry: 0
+  miniPlayer: {fileID: 156213252}
+  food: 3
+  isDead: 0
+  startingPlace: {fileID: 0}
+  isSelected: 0
+  isCurrentlyInAction: 0
+  currentActionStartTime: 0
+  currentActionFinishTime: 0
+  _playerName: 
+  currentActionPercentage: 0
 --- !u!1 &323598359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,6 +2777,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417701961}
   m_CullTransparentMesh: 1
+--- !u!1 &418796336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418796337}
+  - component: {fileID: 418796338}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418796337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418796336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -371.8373, y: -1062.7078, z: 3.114015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2006061753}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418796338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418796336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81152027075d0b246a06a25ecad32c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  places:
+  - {fileID: 1104982710}
+  - {fileID: 1582383456}
+  - {fileID: 1267349802}
+  - {fileID: 1885149397}
+  - {fileID: 1105085394}
+  - {fileID: 1563421927}
+  players:
+  - {fileID: 2018878447}
+  - {fileID: 944536574}
+  - {fileID: 439629571}
 --- !u!1 &419611468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,27 +3033,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
+  playerImages:
+    miniPlayerSprite: {fileID: 0}
+    playerSprite: {fileID: 0}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  UIHandler: {fileID: 0}
   maxFood: 10
   isHungry: 0
-  UIHandler: {fileID: 712828105}
-  playerItens:
-    hasCar: 1
-    hasBeer: 1
-    hasMedkit: 0
-    hasFlashlight: 0
-    hasBinoculars: 0
-  miniPlayer: {fileID: 1054592833}
-  playerIndex: 2
+  miniPlayer: {fileID: 0}
+  food: 3
   isDead: 0
+  startingPlace: {fileID: 0}
   isSelected: 0
   isCurrentlyInAction: 0
-  actionType: 0
   currentActionStartTime: 0
   currentActionFinishTime: 0
-  playerName: "Jos\xE9"
-  miniPlayerSprite: {fileID: 21300000, guid: 8c04118971aac1b4ab9d21863d32bd78, type: 3}
-  startingPlace: {fileID: 1104982710}
+  _playerName: 
   currentActionPercentage: 0
 --- !u!1 &441322042
 GameObject:
@@ -4989,7 +5060,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47651955e3b025c4f95ed586d708cba2, type: 3}
   m_Name: 
@@ -5020,9 +5091,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 669064221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f90ee8dbfe308344687843e4ba9d08f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e64829da66dba84d8af811dc2c2fc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextUpdate: 1
+  timeController: 0
+  timeHour: 0
+  timeDay: 0
+  timeAsString: 
+  dayValue: 1
+  uiHandler: {fileID: 712828105}
+  normalSpeed: 0
+  fastSpeed: 0
+  ultraFastSpeed: 0
+  nightHandler: {fileID: 669064226}
+  isNight: 0
 --- !u!4 &669064224
 Transform:
   m_ObjectHideFlags: 0
@@ -5031,12 +5114,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -371.8373, y: -1062.7078, z: 3.114015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2006061753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &669064225
 MonoBehaviour:
@@ -5045,7 +5128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2790a3ce5c21803469b88924926e12ae, type: 3}
   m_Name: 
@@ -5067,7 +5150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669064221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3abe691283fc3a342aeed95f8b876370, type: 3}
   m_Name: 
@@ -5770,17 +5853,6 @@ MonoBehaviour:
     moonSprite: {fileID: 21300000, guid: 1ec8743db64e6ff42b7784a76f6fdf25, type: 3}
   currentPlayer: {fileID: 2018878447}
   startingPlayer: {fileID: 2018878447}
-  players:
-  - {fileID: 2018878447}
-  - {fileID: 944536574}
-  - {fileID: 439629571}
-  places:
-  - {fileID: 1104982710}
-  - {fileID: 1582383456}
-  - {fileID: 1267349802}
-  - {fileID: 1885149397}
-  - {fileID: 1105085394}
-  - {fileID: 1563421927}
   isThereAPlaceSelected: 0
   actionsHandler: {fileID: 25505682}
 --- !u!1 &715200514
@@ -6999,27 +7071,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
+  playerImages:
+    miniPlayerSprite: {fileID: 0}
+    playerSprite: {fileID: 0}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  UIHandler: {fileID: 0}
   maxFood: 10
   isHungry: 0
-  UIHandler: {fileID: 712828105}
-  playerItens:
-    hasCar: 0
-    hasBeer: 0
-    hasMedkit: 0
-    hasFlashlight: 1
-    hasBinoculars: 1
   miniPlayer: {fileID: 358224372}
-  playerIndex: 1
+  food: 0
   isDead: 0
+  startingPlace: {fileID: 1104982710}
   isSelected: 0
   isCurrentlyInAction: 0
-  actionType: 0
   currentActionStartTime: 0
   currentActionFinishTime: 0
-  playerName: Maria
-  miniPlayerSprite: {fileID: 21300000, guid: 427f2a53ae72e594b97c56f5e242a7d3, type: 3}
-  startingPlace: {fileID: 1104982710}
+  _playerName: Maria
   currentActionPercentage: 0
 --- !u!1 &947406793
 GameObject:
@@ -7890,18 +7959,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 90
-  lootingValue: 10
-  defenseValue: 25
-  placeName: "Ofer\xEA Cimentos"
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: c766bebf074bd5348812a38450f2b28a, type: 3}
   - {fileID: 21300000, guid: c766bebf074bd5348812a38450f2b28a, type: 3}
   spriteRenderer: {fileID: 1104982711}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: c766bebf074bd5348812a38450f2b28a, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: -250, y: 0}
   isSelected: 0
@@ -8049,18 +8110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 30
-  lootingValue: 20
-  defenseValue: 15
-  placeName: Casa dos Castros
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
   - {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
   spriteRenderer: {fileID: 1105085395}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: 9566332e03fb8874d8d980af21ad2081, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: -528, y: -166}
   isSelected: 0
@@ -9282,18 +9335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 50
-  lootingValue: 40
-  defenseValue: 20
-  placeName: Hotel hotel
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
   - {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
   spriteRenderer: {fileID: 1267349803}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: 565b5d08c5c34c147828e5c9828ee435, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: 180, y: 150}
   isSelected: 0
@@ -11201,18 +11246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 30
-  lootingValue: 20
-  defenseValue: 15
-  placeName: Casa dos Souzas
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
   - {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
   spriteRenderer: {fileID: 1563421928}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: bffe491c150041e4d980895371b2a6c4, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: 247.12, y: -180}
   isSelected: 0
@@ -11452,18 +11489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 30
-  lootingValue: 35
-  defenseValue: 90
-  placeName: Apertamentos Sol e Luz
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
   - {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
   spriteRenderer: {fileID: 1582383457}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: 930877e631d3ef34c8954580c712b4b3, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: 200, y: 75}
   isSelected: 0
@@ -14268,18 +14297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0461e178c761e24b88971ff888e3ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dangerValue: 30
-  lootingValue: 20
-  defenseValue: 15
-  placeName: Casa dos Silva
-  players: []
-  isVerified: 0
   placeSelected:
   - {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
   - {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
   spriteRenderer: {fileID: 1885149398}
-  miniPlayerSprites: []
-  menuImage: {fileID: 21300000, guid: 663843dcab8755c4aac158f4b47caf0f, type: 3}
   uiHandler: {fileID: 712828105}
   menuPlacePosition: {x: -270, y: -161}
   isSelected: 0
@@ -14953,6 +14974,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001231131}
   m_CullTransparentMesh: 1
+--- !u!1 &2006061752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006061753}
+  m_Layer: 0
+  m_Name: GameManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2006061753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006061752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 371.8373, y: 1062.7078, z: -3.114015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 418796337}
+  - {fileID: 669064224}
+  - {fileID: 25505683}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012130942
 GameObject:
   m_ObjectHideFlags: 0
@@ -15172,6 +15227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018878446}
   - component: {fileID: 2018878447}
+  - component: {fileID: 2018878448}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -15213,28 +15269,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97f194ad513533488f2e6f76b7fc148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
+  playerImages:
+    miniPlayerSprite: {fileID: 0}
+    playerSprite: {fileID: 0}
+    playerHungrySprite: {fileID: 0}
+    playerDeadSprite: {fileID: 0}
+    playerCrazySprite: {fileID: 0}
+  UIHandler: {fileID: 0}
   maxFood: 10
   isHungry: 0
-  UIHandler: {fileID: 712828105}
-  playerItens:
-    hasCar: 0
-    hasBeer: 1
-    hasMedkit: 1
-    hasFlashlight: 0
-    hasBinoculars: 0
   miniPlayer: {fileID: 306532115}
-  playerIndex: 0
+  food: 0
   isDead: 0
+  startingPlace: {fileID: 1104982710}
   isSelected: 1
   isCurrentlyInAction: 0
-  actionType: 0
   currentActionStartTime: 0
   currentActionFinishTime: 0
-  playerName: "Jo\xE3o"
-  miniPlayerSprite: {fileID: 21300000, guid: 2366703da31cfb445935d0949963a7a3, type: 3}
-  startingPlace: {fileID: 1104982710}
+  _playerName: "Jo\xE3o"
   currentActionPercentage: 0
+--- !u!114 &2018878448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018878445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2ee43b4684eee45b1e99ed2493dfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHandler: {fileID: 306532117}
+  UIHandler: {fileID: 712828105}
 --- !u!1 &2027036628
 GameObject:
   m_ObjectHideFlags: 0
@@ -16224,7 +16291,6 @@ SceneRoots:
   - {fileID: 1499443678}
   - {fileID: 712828104}
   - {fileID: 1733184582}
-  - {fileID: 669064224}
-  - {fileID: 25505683}
+  - {fileID: 2006061753}
   - {fileID: 135125140}
   - {fileID: 1260616225}

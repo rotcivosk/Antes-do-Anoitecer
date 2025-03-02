@@ -1,39 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-#if UNITY_EDITOR
-using UnityEditor.Search;
-#endif
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 public class ActionsHandler : MonoBehaviour
 {
-    public TimeHandler timeHandler;
-    [SerializeField] UIHandler uiHandler;
-    [SerializeField] PlayerHandler[] players; // 0 = Player1, 1 = Player2, 2 = Player3, 3 = Player4
-
-    // Duração das ações
-    [SerializeField] int improveDefenseDuration;
-    [SerializeField] int startLootingDuration;
-    [SerializeField] int clearDangerDuration;
-    [SerializeField] int searchPlaceDuration;
-    [SerializeField] int relaxDuration;
-
     [SerializeField] PlaceResources startingPlace;
-    // Valores das ações
-    [SerializeField] int relaxValue;
-    [SerializeField] int dangerValue;
-    [SerializeField] int lootingValue;
-    [SerializeField] int defenceIncreaseValue;
-
     [SerializeField] EventManager eventManager;
-
-
-
-    void Start()
-    {
-        setForAllPlayersTheCurrentPlace(startingPlace);
+    void Start()     {
+        //setForAllPlayersTheCurrentPlace(startingPlace);
     }
     // Update is called once per frame
     void Update()
@@ -43,210 +14,192 @@ public class ActionsHandler : MonoBehaviour
 
 
     // Aqui são as ações de Mover o Personagem. Mover é considerado uma ação, btw
-    public void MovePlayer(PlaceResources place, PlayerHandler player){
+    public void MovePlayer(PlaceResources place, CharacterHandler player){
         if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
+            Debug.Log (player.playerName + " já está em ação");
             return;}
-        if (player.getCurrentPlace() == place) {
-            Debug.Log (player.getPlayerName() + " já está no lugar");
-            return;}
-        
-        Debug.Log(player.getPlayerName() + "Movendo de " + player.getPlaceName() + " para " + place.getPlaceName());
-        player.actionType = 6; //Ação 6 é de se locomover
-        player.setPlaceToGo(place);
-        StartAction(player, CalculateDurationMovement(player.getCurrentPlace(), place, player));
+        if (player.currentPlace == place) {
+            Debug.Log (player.playerName + " já está no lugar");
+            return ;}
 
+        player.actionType = ActionType.Move;
+        player.placeToGo = place;
+        StartAction(player, CalculateDurationMovement(player.currentPlace, place, player));
     }
 
     // Calcular o tempo de duração da distância entre os lugares
-    private int CalculateDurationMovement(PlaceResources place1, PlaceResources place2, PlayerHandler player){
+    private int CalculateDurationMovement(PlaceResources place1, PlaceResources place2, CharacterHandler player){
         int calculatedDuration = 30;
-        if (player.getCar()) calculatedDuration = calculatedDuration / 2;
+        if (player.characterResources.playerItens.hasCar) calculatedDuration = calculatedDuration / 2;
         return calculatedDuration;
     }
 
     // Aqui são as ações do Jogo em si
-    public void ImproveDefense(PlaceResources place, PlayerHandler player){
-        if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
-            return;}
-        if (player.getCurrentPlace() != place) {
-            Debug.Log (player.getPlayerName() + " não está no lugar");
-            return;}
+    public void ImproveDefense(PlaceResources place, CharacterHandler player){
+        if (!CanPerformAction(place, player)) return;
 
-        Debug.Log(player.getPlayerName() + "Aumentando a defesa de " + place.getPlaceName());
-        player.actionType = 1; //Define a ação que o player vai fazer
-        StartAction(player, improveDefenseDuration);
+        player.actionType = ActionType.ImproveDefense;
+        StartAction(player, ActionType.ImproveDefense.GetDuration(player));
     }
-    public void StartLooting(PlaceResources place, PlayerHandler player){
-        if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
-            return;}
-        if (player.getCurrentPlace() != place) {
-            Debug.Log (player.getPlayerName() + " não está no lugar");
-            return;}
-        Debug.Log(player.getPlayerName() + "Fazendo looting em " + place.getPlaceName());
-        player.actionType = 2; //Define a ação que o player vai fazer
-        int calculatedDuration = startLootingDuration;
-        if (player.getFlashlight()) calculatedDuration = calculatedDuration / 2;
-        StartAction(player, calculatedDuration);
-    }
-    public void ClearDanger(PlaceResources place, PlayerHandler player){
-        if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
-            return;}
-        if (player.getCurrentPlace() != place) {
-            Debug.Log (player.getPlayerName() + " não está no lugar");
-            return;}
-        Debug.Log(player.getPlayerName() + "Limpando defesa em " + place.getPlaceName());
-        player.actionType = 3; //Define a ação que o player vai fazer
-        StartAction(player, clearDangerDuration);
-    }
-    public void ObservePlace(PlaceResources place, PlayerHandler player){
-        if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
-            return;}
-        if (player.getCurrentPlace() != place) {
-            Debug.Log (player.getPlayerName() + " não está no lugar");
-            return;}
-        if (place.getObserves()) {
-            Debug.Log (player.getPlayerName() + " já vasculhado");
-            return;}
-        Debug.Log(player.getPlayerName() + "Vasculhando " + place.getPlaceName());
-        player.actionType = 4; 
-        //Define a ação que o player vai fazer
-        int calculatedDuration = searchPlaceDuration;
-        if (player.getBinoculars()) calculatedDuration = calculatedDuration / 2;
+    public void StartLooting(PlaceResources place, CharacterHandler player){
+        if (!CanPerformAction(place, player)) return;
 
-
-        StartAction(player, calculatedDuration);
+        player.actionType = ActionType.Looting;
+        StartAction(player, ActionType.Looting.GetDuration(player));
     }
-    public void RelaxInPlace(PlaceResources place, PlayerHandler player){
+    public void ClearDanger(PlaceResources place, CharacterHandler player){
+        if (!CanPerformAction(place, player)) return;
+
+        player.actionType = ActionType.ClearDanger;
+        StartAction(player, ActionType.ClearDanger.GetDuration(player));
+    }
+    public void ObservePlace(PlaceResources place, CharacterHandler player){
+        if (!CanPerformAction(place, player)) return;
+
+        if (place.isVerified) {
+            Debug.Log (player.playerName + " já vasculhado");
+            return;}
+        player.actionType = ActionType.Search;
+        StartAction(player, ActionType.Search.GetDuration(player));
+    }
+    public void RelaxInPlace(PlaceResources place, CharacterHandler player){
+        if (!CanPerformAction(place, player)) return;
+
+        if (player.characterResources.playerSanity == 100) {
+            Debug.Log (player.playerName + " já está relaxado");
+            return;}
+        if (place.dangerValue > 50) {
+            Debug.Log (player.playerName + " não pode relaxar em um lugar perigoso");
+            return;}
+        player.actionType = ActionType.Relax;
+        StartAction(player, ActionType.Relax.GetDuration(player));
+    }
+
+    private bool CanPerformAction(PlaceResources place, CharacterHandler player){
         if (player.isCurrentlyInAction) {
-            Debug.Log (player.getPlayerName() + " já está em ação");
-            return;}
-        if (player.getCurrentPlace() != place) {
-            Debug.Log (player.getPlayerName() + " não está no lugar");
-            return;}
-        if (player.getSanity() == 100) {
-            Debug.Log (player.getPlayerName() + " já está relaxado");
-            return;}
-        if (place.getDangerValue() > 50) {
-            Debug.Log (player.getPlayerName() + " não pode relaxar em um lugar perigoso");
-            return;}
-        Debug.Log(player.getPlayerName() + "Relaxando em " + place.getPlaceName());
-        player.actionType = 5; //Define a ação que o player vai fazer
-        StartAction(player, relaxDuration);
+            Debug.Log (player.playerName + " já está em ação");
+            return false;}
+        if (player.currentPlace != place) {
+            Debug.Log (player.playerName + " não está no lugar");
+            return false;}
+        return true;
     }
-    public void SleepThroughtNight(PlayerHandler player){
+    public void SleepThroughtNight(CharacterHandler player){
 
-        Debug.Log(player.getPlayerName() + "Dormindo");
-        player.actionType = 7; //Define a ação que o player vai fazer
-        StartAction(player, player.getID() * 5);
+        Debug.Log(player.playerName + "Dormindo");
+        player.actionType = ActionType.Sleep;
+        StartAction(player, player.playerIndex * 5);
     }
 
     // Aqui controla o começo, a duração e o fim das ações, respectivamente
-    private void StartAction(PlayerHandler player, int actionDuration){
+    private void StartAction(CharacterHandler player, int actionDuration){
         player.isCurrentlyInAction = true;
-        uiHandler.ForceUpdate();
+       // int tempDuration = player.actionType.GetDuration(player);
+        UIHandler.Instance.ForceUpdate();
         //Calcula o tempo da ação em segundos(do timecontroler e tals)
-        player.currentActionStartTime = timeHandler.timeController;
-        player.currentActionFinishTime = timeHandler.timeController + actionDuration;
+        player.currentActionStartTime = TimeHandler.Instance.timeController;
+        player.currentActionFinishTime = TimeHandler.Instance.timeController + actionDuration;
     }
     public void CheckForAllActionsTime(){
         // checks iniciais se está em ação e se já terminou, e se tem uma ação selecionada
-        for(int i = 0; i < players.Length; i++){
-            CheckForActionTime(players[i]);            
+        if (GameManager.Instance.Players == null) {
+            Debug.Log("Players Não instanciados");
+            return;
+        }
+        foreach(CharacterHandler player in GameManager.Instance.Players){
+            CheckForActionTime(player);
         }
    }
-    private void CheckForActionTime(PlayerHandler player){
+    private void CheckForActionTime(CharacterHandler player){
 
         // checks iniciais se está em ação e se já terminou, e se tem uma ação selecionada
         if (!player.isCurrentlyInAction) return;
-        player.currentActionPercentage = (timeHandler.timeController - player.currentActionStartTime) / (player.currentActionFinishTime - player.currentActionStartTime);
-        if (timeHandler.timeController < player.currentActionFinishTime) return;
+        player.currentActionPercentage = (TimeHandler.Instance.timeController - player.currentActionStartTime) / (player.currentActionFinishTime - player.currentActionStartTime);
+        if (TimeHandler.Instance.timeController < player.currentActionFinishTime) return;
         player.isCurrentlyInAction = false;
-        Debug.Log("Ação de " + player.getPlayerName() + " terminado");
+        Debug.Log("Ação de " + player.playerName + " terminado");
         finishAction(player); 
     }
 
-    private void finishAction(PlayerHandler player){
-        PlaceResources place = player.getCurrentPlace();
+    private void finishAction(CharacterHandler player){
+        PlaceResources place = player.currentPlace;
         player.isCurrentlyInAction = false;
-        switch (player.getActionType()){
-            case 1:
-                Debug.Log("Aumentando a defesa de " + place.getPlaceName() + " em 10");
+        switch (player.actionType){
+            case ActionType.ImproveDefense:
                 eventManager.TriggerEvent("Defense", player, place);
                 break;
-            case 2:
-                Debug.Log("Diminuindo o looting de " + place.getPlaceName() + " em 10");
+            case ActionType.Looting:
                 eventManager.TriggerEvent("Loot", player, place);
-                //place.addLootingValue(lootingValue);
                 break;
-            case 3:
-                Debug.Log("Diminuindo o perigo de " + place.getPlaceName() + " em 10");
-                place.addDangerValue(dangerValue);
+            case ActionType.ClearDanger:
+               eventManager.TriggerEvent("Danger", player, place);
                 break;
-            case 4:
-                Debug.Log("Vasculhando " + place.getPlaceName());
+            case ActionType.Search:
                 eventManager.TriggerEvent("Search", player, place);
-                //place.setObserves(true);
                 break;
-            case 5:
-                Debug.Log("Relaxando em " + place.getPlaceName());
-                if (player.getBeer()) {
-                    player.addSanity(relaxValue * 2);
-                } else {
-                    player.addSanity(relaxValue);
-                }
+            case ActionType.Relax:
                 eventManager.TriggerEvent("Relax", player, place);
                 break;
-            case 6:
-                Debug.Log("Movendo " + player.getPlayerName() + " para " + player.getPlaceToGo().getPlaceName());
-                player.setPlaceResources(player.getPlaceToGo());
+            case ActionType.Move:
+                player.currentPlace = player.placeToGo;
                 break;
-            case 7:
-                Debug.Log("Iniciando a Noite");
+            case ActionType.Sleep:
                 eventManager.TriggerEvent("Night", player, place);
                 break;
         }
-        if(player.isSelected) uiHandler.updatePlayerPanel(player);
+        
+        if(player.isSelected) UICharacter.Instance.updatePlayerPanel(player);
         
         player.actionType = 0;
-        uiHandler.ForceUpdate();
+        UIHandler.Instance.ForceUpdate();
     }
 
 
 
-    public void setForAllPlayersTheCurrentPlace(PlaceResources place){
-        for(int i = 0; i < players.Length; i++){
-            players[i].setPlaceResources(place);
+        public void setForAllPlayersTheCurrentPlace(PlaceResources place){
+            foreach(CharacterHandler player in GameManager.Instance.Players){
+                player.currentPlace = place;
+            }
+        }
+
+}
+
+
+public enum ActionType
+{
+    None = 0,
+    ImproveDefense = 1,
+    Looting = 2,
+    ClearDanger = 3,
+    Search = 4,
+    Relax = 5,
+    Move = 6,
+    Sleep = 7
+}
+public static class ActionTypeExtensions
+{
+    public static int GetDuration(this ActionType action, CharacterHandler player)
+    {
+        int baseDuration = action switch
+        {
+            ActionType.ImproveDefense => 30,
+            ActionType.Looting => 40,
+            ActionType.ClearDanger => 25,
+            ActionType.Search => 35,
+            ActionType.Relax => 20,
+            ActionType.Move => 30,
+            ActionType.Sleep => 10,
+            _ => 30, // Duração padrão para ações desconhecidas
+        };
+
+        switch (action)
+        {
+            case ActionType.Looting when player.characterResources.playerItens.hasFlashlight:
+                return baseDuration / 2; 
+            case ActionType.Search when player.characterResources.playerItens.hasBinoculars:
+                return baseDuration / 2;
+            default:
+                return baseDuration;
         }
     }
-
-    
-    // Para pegar o tempo das ações
-
-    public int getStartLootingDuration(PlayerHandler player){
-        if (player.getFlashlight()) return startLootingDuration / 2;
-        return startLootingDuration;
-    }
-    public int getRelaxDuration(PlayerHandler player){
-        return relaxDuration;
-    }
-    public int getSearchPlaceDuration(PlayerHandler player){
-        if (player.getBinoculars()) return searchPlaceDuration / 2;
-        return searchPlaceDuration;
-    }
-    public int getImproveDefenseDuration(PlayerHandler player){
-        return improveDefenseDuration;
-    }
-    public int getClearDangerDuration(PlayerHandler player){
-        return clearDangerDuration;
-    }
-
-
-
-
-
 }

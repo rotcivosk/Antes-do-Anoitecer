@@ -1,7 +1,7 @@
 using UnityEngine;
 public interface IActionEffect
 {
-    void Apply(PlayerHandler player, PlaceResources place);
+    void Apply(CharacterHandler player, PlaceResources place);
 }
 
 public class EventManager : MonoBehaviour
@@ -13,7 +13,7 @@ public class EventManager : MonoBehaviour
     public GameEvent[] NightEvents; // Lista de eventos de viagem
     public GameEvent[] SpecialEvents; // Lista de eventos especiais
     public GameEvent[] RelaxEvents; // Lista de eventos de relaxamento
-    private PlayerHandler currentPlayer;
+    private CharacterHandler currentPlayer;
     private PlaceResources currentPlace;
     [SerializeField] GameEvent currentEvent; // O evento atual
     [SerializeField] EventUI eventUI; // Painel de eventos na UI
@@ -27,7 +27,7 @@ public class EventManager : MonoBehaviour
     }
 
 
-    public void TriggerEvent(string eventType, PlayerHandler player, PlaceResources place)
+    public void TriggerEvent(string eventType, CharacterHandler player, PlaceResources place)
     {
         // Starting event
         isEventActive = true;

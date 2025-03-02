@@ -11,7 +11,7 @@ public class GameAction : ScriptableObject
     public string resultDescription; // Descrição do resultado da ação
 
 
-    public void Apply(PlayerHandler player, PlaceResources place, EventManager eventManager)
+    public void Apply(CharacterHandler player, PlaceResources place, EventManager eventManager)
     {
         float totalProbability = 0;
         foreach (var possibility in possibilities)

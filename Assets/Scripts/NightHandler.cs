@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NightHandler : MonoBehaviour
 {
-    [SerializeField] PlayerHandler[] players;
+    [SerializeField] CharacterHandler[] players;
     [SerializeField] PlaceResources[] places;
     [SerializeField] UIHandler uiHandler;
     [SerializeField] TimeHandler timeHandler;
@@ -32,18 +32,18 @@ public class NightHandler : MonoBehaviour
     void HandleTimeAndUI()
     {
         timeHandler.resumeTime();
-        uiHandler.updateNightUI(false);
+        //uiHandler.updateNightUI(false);
     }
 
 
 
     void updatePlayers()
     {
-        foreach (PlayerHandler player in players)
+        foreach (CharacterHandler player in players)
         {
             player.isCurrentlyInAction = false;
         }
-        foreach (PlayerHandler player in players)
+        foreach (CharacterHandler player in players)
         {
             actionsHandler.SleepThroughtNight(player);
         }
@@ -53,7 +53,7 @@ public class NightHandler : MonoBehaviour
     {
         Debug.Log("A noite acabou");
         HandleTimeAndUI();
-        uiHandler.updateNightUI(true);
+        //uiHandler.updateNightUI(true);
     }
  
     /* O que deveria acontecer:
