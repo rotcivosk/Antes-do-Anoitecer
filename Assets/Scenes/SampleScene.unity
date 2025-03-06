@@ -2045,11 +2045,11 @@ RectTransform:
   - {fileID: 1321846111}
   m_Father: {fileID: 712828104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 773.4, y: 451.7}
-  m_SizeDelta: {x: 392.3378, y: 164}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 750.87354, y: 853.06885}
+  m_SizeDelta: {x: -1501.7494, y: 226.93121}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &306532115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,7 +5158,6 @@ MonoBehaviour:
   timeDay: 0
   timeAsString: 
   dayValue: 1
-  uiHandler: {fileID: 712828105}
   normalSpeed: 0
   fastSpeed: 0
   ultraFastSpeed: 0
@@ -13193,7 +13192,6 @@ MonoBehaviour:
   timeDay: 0
   timeAsString: 
   dayValue: 1
-  uiHandler: {fileID: 712828105}
   normalSpeed: 0.5
   fastSpeed: 0.1
   ultraFastSpeed: 0.005
